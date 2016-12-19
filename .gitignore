@@ -5,3 +5,4 @@ dist
 .sass-cache
 /index.html
 *.pdf
+slides/list.json
