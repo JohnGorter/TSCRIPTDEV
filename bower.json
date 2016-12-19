@@ -4,6 +4,7 @@
   "dependencies": {
     "reveal.js": "~3.3.0",
     "highlightjs": "~9.4.0",
-    "reveal.js-theme-infosupport": "~0.0.2"
+    "reveal.js-theme-infosupport": "~0.0.2",
+    "font-awesome": "fontawesome#^4.7.0"
   }
 }

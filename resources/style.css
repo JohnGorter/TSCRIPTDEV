@@ -6,3 +6,33 @@
 .reveal h1 {
    color: #fff;
 }
+
+.reveal .col {
+    flex: 1 1 0;
+    padding-right: 40px;
+    text-align: left;
+}
+
+.reveal .flex {
+    display: flex;
+}
+
+.reveal .no-list-style-type {
+  list-style-type: none;
+}
+
+.reveal .icon {
+    color: #00539F;
+    width: 50px;
+}
+
+.reveal *:not(pre)>code {
+    color: #900;
+}
+
+.reveal .emblem {
+  right: 30px;
+  position: absolute;
+  top: 0;
+  width: 100px;
+}
