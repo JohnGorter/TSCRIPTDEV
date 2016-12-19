@@ -1,3 +1,4 @@
+## Recap
 
 Functions work the same in Typescript as ECMAScript
 
@@ -13,7 +14,7 @@ function sumWithZ(x,y) {
 
 ## Typed-Functions
 
-Strongly typed function using type annotations.
+Create a strongly typed function using type annotations.
 
 ```typescript
 const z = 100;
@@ -42,9 +43,9 @@ function sumWithZ(x: number, y: number): number {
 Optional parameters are supported using `?`
 
 ```typescript
-function printName(firstName: String, lastName?: String) {
+function printName(firstName: string, lastName?: string) {
     if (lastName) {
-        console.log(firstName + " " + lastName);
+        console.log(`${firstName} ${lastName}`);
     } else {
         console.log(firstName);
     }
@@ -55,7 +56,7 @@ Default parameters must be placed after required parameters.
 <!-- .element class="fragment" data-fragment-index="0" -->
 
 ```typescript
-function logToConsole(firstName?: String, lastName: String) {
+function logToConsole(firstName?: string, lastName: string) {
     // => A required parameter cannot follow an optional parameter.
 }
 ```
