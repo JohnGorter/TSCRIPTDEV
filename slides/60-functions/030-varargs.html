@@ -1,0 +1,46 @@
+<h2>Varargs</h2>
+
+<div class="flex">
+    <pre class="col"><code class="lang-Javascript hljs" data-trim>
+//Javascript
+
+function buyNewCar(brand, carType) {
+  var features = "";
+  
+    if(arguments.length >= 2) {
+        for(var i = 2; i < arguments.length; i++) {
+            features += " " + arguments[i];
+        } 
+    }
+    
+    console.log("Buying new: " + brand + " " + carType + 
+                " with features: " + features);
+} 
+
+buyNewCar("Tesla", "Model S", "Leather seats", 
+"Blue painting", "Lighted door handles"); 
+ 
+// result: Buying new: Tesla Model S with features: 
+// Leather seats and Blue painting and Lighted door handles   
+</code></pre>
+
+    <pre class="col"><code class="lang-Typescript hljs" data-trim>
+//TypeScript
+
+function buyNewCar(brand: string, carType: string, ...attributes: string[]) {
+      console.log("Buying new: " + brand + " " + carType + 
+                  " with features: " + attributes.join(" and "));
+    }
+}
+
+buyNewCar("Tesla", "Model S", "Leather seats", "Blue painting", 
+          "Lighted door handles");
+ 
+// result: Buying new: Tesla Model S with features: Leather seats 
+// and Blue painting and Lighted door handles
+</code></pre>
+</div>
+
+<ul>
+    <li>`Default parameters` should be placed after required parameters</li>
+</ul>
