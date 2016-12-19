@@ -2,7 +2,7 @@
 
 Functions work the same in Typescript as ECMAScript
 
-```Typescript
+```typescript
 const z = 100;
 
 function sumWithZ(x,y) {
@@ -27,7 +27,7 @@ function sumWithZ(x: number, y: number): number {
 Expect errors when you are doing something wrong.<!-- .element class="fragment" data-fragment-index="0" -->
 
 ```typescript
-const z = "Hello world!"
+const z = 'Hello world!'
 
 function sumWithZ(x: number, y: number): number {
     return x + y + z;
