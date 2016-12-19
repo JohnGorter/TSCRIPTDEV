@@ -5,22 +5,24 @@ module.exports = (grunt) ->
         pkg: grunt.file.readJSON 'package.json'
 
         watch:
+            options:
+                livereload: false
 
             livereload:
                 options:
                     livereload: true
                 files: [
                     'index.html'
-                    'slides/{,*/}*.{md,html}'
                     'js/*.js'
                     'resources/**'
                 ]
 
-            index:
+            slides:
                 files: [
                     'templates/_index.html'
                     'templates/_section.html'
                     'slides/list.json'
+                    'slides/{,*/}*.{md,html}'
                 ]
                 tasks: ['conventionalBuildIndex']
 
