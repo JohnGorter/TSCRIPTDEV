@@ -41,3 +41,10 @@
     margin: 0;
     width: 100%;
 }
+
+.reveal .emblem {
+  right: 30px;
+  position: absolute;
+  top: 0;
+  width: 100px;
+}
