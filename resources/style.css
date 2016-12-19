@@ -1,0 +1,8 @@
+.reveal img.small-logo {
+    max-width: 300px;
+    max-height: 200px;
+}
+
+.reveal h1 {
+   color: #fff;
+}
