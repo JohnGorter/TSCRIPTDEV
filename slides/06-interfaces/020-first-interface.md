@@ -1,5 +1,0 @@
-## Our firt interface
-
-```typescript
-
-```

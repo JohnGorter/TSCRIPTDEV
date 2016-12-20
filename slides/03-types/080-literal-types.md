@@ -10,4 +10,4 @@ let isTheAnswer42: true = 42;
 let toBeOrNotToBe: 'thatsTheQuestion' = 'thatsTheQuestion';
 ```
 
-This can be usefull in some usecases, more on that later.
+This can be useful in some usecases, more on that later.
