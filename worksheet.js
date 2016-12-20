@@ -1,2 +1,3 @@
-function d(a = 2) {
-}
+var a = 3;
+a = null; // => OK
+a = undefined; // => OK
