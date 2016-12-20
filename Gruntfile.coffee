@@ -87,6 +87,12 @@ module.exports = (grunt) ->
                     src: "labs/*.md",
                     dest: "dest"
 
+        ts:
+            'compile-sample-messaging':
+                tsconfig:
+                    tsconfig: 'samples/messaging/tsconfig.json'
+                    passThrough: true
+
 
     # Load all grunt tasks.
     require('./tasks/generate-list')

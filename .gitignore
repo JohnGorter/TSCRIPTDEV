@@ -6,3 +6,5 @@ dist
 /index.html
 *.pdf
 slides/list.json
+samples/**/*.js
+.tscache
