@@ -1,4 +1,4 @@
-<!-- .slide: data-background="url('resources/typescript-blueprint.svg') no-repeat #03324C center"-->
+<!-- .slide: data-background="url('resources/typescript-blueprint.svg') no-repeat #03324C bottom"-->
 
 ![Microsoft](resources/microsoft-logo.jpg) <!-- .element class="small-logo" -->
 
