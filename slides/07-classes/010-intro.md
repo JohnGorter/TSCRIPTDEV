@@ -1,3 +1,8 @@
+## Prototypal inheritance
+
+* JavaScript supports something called prototypal inheritance
+
+```javascript
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -25,3 +30,10 @@ var ColoredPoint = (function (_super) {
     };
     return ColoredPoint;
 }(Point));
+```
+
+<!-- .element class="fragment" data-fragment-index="0" -->
+
+Lets please never do that again.
+
+<!-- .element class="fragment" data-fragment-index="1" -->

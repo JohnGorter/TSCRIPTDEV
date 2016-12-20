@@ -21,9 +21,11 @@
   list-style-type: none;
 }
 
-.reveal .icon {
+.reveal .facilities-icon-container {
     color: #00539F;
-    width: 50px;
+    width: 80px;
+    text-align: center;
+    display: inline-block;
 }
 
 .reveal *:not(pre)>code {

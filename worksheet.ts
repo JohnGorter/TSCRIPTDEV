@@ -1,10 +1,19 @@
 
-interface Point {
-    x: number;
-    y: number;
+
+class Point {
+    constructor(protected x: number, protected y: number) {}
+
+    toString(){
+        return `${this.x}, ${this.y}`;
+    }
 }
-const origin: Point = { x: 0, y: 0 };
 
-const readonlyOrigin = Object.freeze(origin);
-readonlyOrigin.x = 34;
+class ColoredPoint extends Point {
+    constructor(x: number, y: number, protected color: string){
+        super(x, y);
+    }
 
+    toString(){
+        return `${super.toString()} in ${this.color}`;
+    }
+}
