@@ -3,15 +3,15 @@
 Add type annotations with a colon `:`, right after the declaration
 
 ```typescript
-var name:string = 'nicojs';
+let name:string = 'nicojs';
 
 function add(x:number, y:number):number {
     return x + y;
 }
 
-var list:number[] = [2, 4, 5]; // Synonym: var list:Array<number>
+let list:number[] = [2, 4, 5]; // Synonym: var list:Array<number>
 
-var isEven: (number) => boolean = function (n: number) {
+let isEven: (number) => boolean = function (n: number) {
     return n % 2 === 0;
 }
 
@@ -30,7 +30,8 @@ Types...
 
 * Are optional
 * Only at compile time
-* Closely resembles EcmaScript types
+    * They are simply removed when transpiled to JavaScript
+* Closely resembles ECMAScript types
     * `string`, `boolean`, `number`, `array`, `undefined`, etc
 * Inferred when possible
 * Comparable to static code analysis

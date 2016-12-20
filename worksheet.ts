@@ -1,3 +1,5 @@
-function d(a=2){
 
+
+const person = {
+    name: 'nico'
 }

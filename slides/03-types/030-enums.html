@@ -1,6 +1,6 @@
-<h4>Enums</h4>
+<h3>Enums</h3>
 
-An <code>enum</code> is a set of numeric values
+An <code>enum</code> is a map of numeric values and string counter parts
 
 <div class="flex">
     <pre class="col"><code class="hljs lang-typescript" data-trim>
@@ -23,4 +23,7 @@ var MessageKind;
 var message = MessageKind.Start;</code></pre>
 </div>
 
-<p class="fragment"><strong>Question:</strong> explain the JavaScript to me</p>
+<p class="fragment">Can you explain the JavaScript to me?</p>
+<pre class="fragment"><code class="hljs lang-javascript" data-trim>
+MessageKind['Start']; // => 0
+MessageKind[0]; // => 'Start'</code></pre>
