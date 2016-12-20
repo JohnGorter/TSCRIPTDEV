@@ -1,14 +1,12 @@
 ## Configure the compiler
 
-You can use `tsconfig.json` to configure the compiler.
-
-Generate a default config.
+Generate a `tsconfig.json` file.
 
 ```bash
 tsc --init
 ```
 
-output:
+output in `tsconfig.json`:
 
 <!-- .element class="fragment" data-fragment-index="0" -->
 
@@ -27,9 +25,9 @@ output:
 
 ---
 
-## Include & Exclude files 
+## Include & Exclude files
 
-Exclude files that don't need *Transpiles*.
+Exclude files that don't want to ignore.
 
 ```json
     "include": [
@@ -40,7 +38,7 @@ Exclude files that don't need *Transpiles*.
     ]
 ```
 
-Included files by default when not specified: 
+Included files by default when not specified:
 
 <!-- .element class="fragment" data-fragment-index="0" -->
 
@@ -48,9 +46,9 @@ Included files by default when not specified:
 
 <!-- .element class="fragment" data-fragment-index="0" -->
 
-Excluded files by default when not specified: 
+Excluded files by default when not specified:
 
-<!-- .element class="fragment" data-fragment-index="1" --> 
+<!-- .element class="fragment" data-fragment-index="1" -->
 
 *node_modules*, *bower_components*, *jspm_packages*
 

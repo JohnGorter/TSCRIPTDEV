@@ -1,5 +1,14 @@
 ## Typings
 
+```typescript
+import 'log4js';
+```
+
+TypeScript will resolve 'log4js'
+1. Use `typings` from /node_modules/log4js/package.json
+2.
+
+
 - *TypeScript* definition files are saved as `*.d.ts`.
     - These files contain a definition on how to use the *JavaScript* API with *TypeScript* code.
 - Library's can provide a `typings` definition.
@@ -7,7 +16,7 @@
     - Big names publish typings to the *DefinitelyTyped* as well:
         - Angular
         - Express
-- Since *TypeScript 2.0* typing files will be installed by default if the library provides `Typings`. 
+- Since *TypeScript 2.0* typing files will be installed by default if the library provides `Typings`.
 
 ---
 

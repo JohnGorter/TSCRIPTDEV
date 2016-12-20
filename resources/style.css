@@ -54,3 +54,18 @@
 .reveal .pin-max-height {
     max-height: 550px;
 }
+
+.reveal .slides section.lab {
+    background-color: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 0 5px 5px white;
+    padding: 0 20px;
+    border-radius: 30px;
+}
+.reveal .slides section.lab h2 {
+    font-variant: small-caps;
+    font-weight: bold;
+}
+
+.reveal .pin-height-400 {
+    max-height: 400px;
+}

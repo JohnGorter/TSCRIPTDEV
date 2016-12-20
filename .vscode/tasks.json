@@ -10,9 +10,11 @@
     "showOutput": "always",
     "tasks": [
         {
-            "taskName": "ts:compile-sample-messaging"
+            "taskName": "ts:compile-sample-messaging",
+            "isBuildCommand": true
         }, {
-            "taskName": "ts:compile-sample-lib"
+            "taskName": "ts:compile-sample-lib",
+            "isBuildCommand": true
         }
     ]
 }
