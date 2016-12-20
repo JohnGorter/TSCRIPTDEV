@@ -14,28 +14,21 @@
 
 ## Lib option
 
-- lib
-    - List of librarys to include with compilation.
+- List of librarys to include with compilation.
+- *Transpile* to `ES5` and make use of the `ES6` Promise library. 
 
-*Transpile* to `ES5` and make use of the ES6 Promise library. 
-
-```typescript
-let p = new Promise<string>((resolve) => { 
-    resolve('Resolve this Promise!'); 
-});
-
-//Error: => Cannot find name 'Promise'.
-```
-
-
-
-    //code voorbeeld.
-
+**Example**
 
 ---
 
-- sourceMap
-  
+## SourceMap option
+
+Generate corresponding `.map.js` files.
+
+The `.map.js` is a mapping file between the *JavaScript* and *TypeScript* file.
+
+Using `.map.js` files enables you to debug *TypeScript* code inside the browser or supported IDEA's.  
+
 ---
 
 ## Module option

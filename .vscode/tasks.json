@@ -11,6 +11,8 @@
     "tasks": [
         {
             "taskName": "ts:compile-sample-messaging"
+        }, {
+            "taskName": "ts:compile-sample-lib"
         }
     ]
 }
