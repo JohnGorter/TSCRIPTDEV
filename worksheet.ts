@@ -1,3 +1,5 @@
-let a = 3;
-a = null;      // => OK
-a = undefined; // => OK
+
+
+const person = {
+    name: 'nico'
+}
