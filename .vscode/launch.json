@@ -7,11 +7,18 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Run sample messaging",
+            "program": "${workspaceRoot}/samples/messaging/Host.js",
+            "cwd": "${workspaceRoot}/samples/messaging/",
+            "preLaunchTask": "ts:compile-sample-messaging"
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Compile worksheet",
-            "program": "${workspaceRoot}/.bin/tsc",
+            "program": "${workspaceRoot}/node_modules/typescript/bin/tsc",
             "cwd": "${workspaceRoot}",
             "args": [
-                "${workspaceRoot}\\worksheet.ts"
             ],
             "outFiles": [],
             "sourceMaps": true

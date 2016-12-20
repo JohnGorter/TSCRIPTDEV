@@ -1,6 +1,6 @@
 ## Syntax
 
-Add optional type info with colon (`:`) right after the declaration
+Add type annotations with a colon `:`, right after the declaration
 
 ```typescript
 var name:string = 'nicojs';
