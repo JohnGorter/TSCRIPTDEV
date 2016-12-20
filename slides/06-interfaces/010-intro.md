@@ -1,4 +1,3 @@
 ## Interfaces introduction
 
-* We know `interface`s from Java and C#
-    * The represent a way
+Interfaces in TypeScript are used to *name* the *shape* of objects.

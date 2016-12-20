@@ -1,6 +1,6 @@
-## Recap
+## Introduction
 
-Functions work the same in Typescript as ECMAScript
+Functions work the same in TypeScript as ECMAScript
 
 ```typescript
 const z = 100;

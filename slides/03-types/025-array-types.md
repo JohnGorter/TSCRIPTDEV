@@ -23,7 +23,7 @@ person = [10, "Henk"]; // => Syntax error
 // Type `[number, string]` is not assignable to type `[string, number]`.
 ```
 
-Very usefull in combination with type inferrence <!-- .element class="fragment" data-fragment-index="1" -->
+Very useful in combination with type inferrence <!-- .element class="fragment" data-fragment-index="1" -->
 
 ```typescript
 console.log(person[0].substr(1)); // OK
@@ -31,7 +31,7 @@ console.log(person[1].substr(1)); // Error, `number` does not have `substr`
 ```
 <!-- .element class="fragment" data-fragment-index="1" -->
 
-You can even go beyond the known indexes. <!-- .element class="fragment" data-fragment-index="2" -->
+You can even go beyond the known indices. <!-- .element class="fragment" data-fragment-index="2" -->
 
 ```typescript
 const maybeNameOrAge = person[3]; // => inferred type: `string | number`
