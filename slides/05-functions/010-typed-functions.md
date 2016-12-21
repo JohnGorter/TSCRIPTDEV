@@ -12,7 +12,7 @@ function sumWithZ(x,y) {
 
 ---
 
-## Typed-Functions
+## Typed functions
 
 Create a strongly typed function using type annotations.
 
@@ -22,6 +22,9 @@ const z = 100;
 function sumWithZ(x: number, y: number): number {
     return x + y + z;
 }
+
+// Alternative
+const sumWithZCopy: (x: number, y: number) => number = sumWithZ;
 ```
 
 Expect errors when you are doing something wrong.<!-- .element class="fragment" data-fragment-index="0" -->
