@@ -1,11 +1,1 @@
-## Welcome to Info Support
-
-* 450+ Employees
-* Started in 1986
-* Belgium and Netherlands
-    * Microsoft
-    * Java
-    * Web
-    * Data (NoSQL and Relational)
-    * Machine learning
-
+<!-- .slide: data-background-video="resources/infosupport-website-trailer-2016.mp4" data-background-video-loop data-background-video-muted=" -->

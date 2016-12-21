@@ -27,7 +27,7 @@
 ## What is TypeScript
 
 * *Syntactic sugar* for JavaScript
-* Superset of EcmaScript vNext
+* Superset of ECMAScript vNext
 * Types, classes, modules, decorators
 * *Transpiles* to JavaScript
     * `ES3`

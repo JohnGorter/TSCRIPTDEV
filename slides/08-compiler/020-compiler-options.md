@@ -28,7 +28,7 @@
 
 ## SourceMap option
 
-Generate corresponding `.map.js` files. Useful for debugging in IDEA or browser.
+Generate corresponding `.map.js` files. Useful for debugging in IDE or browser.
 
 ![Debugging in browser](resources/debugging-ts-browser.png) <!-- .element class="pin-height-400" -->
 

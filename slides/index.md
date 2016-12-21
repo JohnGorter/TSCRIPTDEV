@@ -1,11 +1,8 @@
 <!-- .slide: data-background="url('resources/typescript-blueprint.svg') no-repeat #03324C bottom"-->
 
-![Microsoft](resources/microsoft-logo.jpg) <!-- .element class="small-logo" -->
+![TypeScript](resources/logo.svg)
 
-<br />
-
-# TypeScript
-
-<br />
-
-![Open Source](resources/opensource.png) <!-- .element class="small-logo" -->
+![Microsoft](resources/Microsoft_logo.svg) <!-- .element class="small-logo" -->
+![Angular](resources/angular-icon.svg) <!-- .element class="small-logo" -->
+![Open Source](resources/open-source.svg) <!-- .element class="small-logo" -->
+![vscode](resources/vscode.png) <!-- .element class="small-logo" -->
