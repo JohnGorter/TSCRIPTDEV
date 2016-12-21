@@ -1,12 +1,10 @@
 ## Definition files
 
-- A definition file is a declartion of your library.
-- Way of providing your library for JavaScript consumption.
+- A definition file is a declarion of your library.
+- Describe the types in an existing JavaScript library.
 
 ```typescript
 // lib.es6.d.ts
-
-declare var foo: string;
 
 declare var Console: {
     prototype: Console;
@@ -21,18 +19,18 @@ interface Console {
 
 ---
 
-## Custom declartion file.
+## Custom declaration file
 
 Generating your own custom `declaration files` can be done with the `declaration` compiler option.
 
 <!-- .element class="fragment" data-fragment-index="0" -->
 ```bash
-tsc --declartion
+tsc --declaration
 ```
 <!-- .element class="fragment" data-fragment-index="0" -->
 
 
-Useful when you are writing your own library.
+Useful when you are writing your own library and don't want to provide the TypeScript source code.
 
 <!-- .element class="fragment" data-fragment-index="1" -->
 
@@ -52,15 +50,20 @@ Supplying your custom `declaration files` can be done inside the `package.json`.
 
 ---
 
-## Typings
+## Declaration file distribution
 
-- Typings are defintion files.
-- Library's can provide a `typings` definition.
-    - Typings can be found at: https://github.com/DefinitelyTyped/DefinitelyTyped
+- 100's of libraries already have declaration files
+    - Can be found at: https://github.com/DefinitelyTyped/DefinitelyTyped
     - Big names publish typings to the *DefinitelyTyped* as well:
         - Angular
         - Express
-- Since *TypeScript 2.0* typing files will be installed by default if the library provides `Typings`.
+- Since *TypeScript 2.0* they can be directly installed using npm under the `@types`-namespace
+    - [namespaces on npm](http://blog.npmjs.org/post/116936804365/solving-npms-hard-problem-naming-packages) <!-- .element target="_blank" -->
+
+```bash
+npm i -D @types/express # install typings for express
+```
+
 
 ---
 
@@ -70,7 +73,11 @@ Supplying your custom `declaration files` can be done inside the `package.json`.
 import * as log4js from 'log4js';
 ```
 
-TypeScript will resolve 'log4js' and look for `typings`.
+TypeScript will try to resolve 'log4js':
+1. ./node_modules/log4js/package.json&nbsp;(look&nbsp;for&nbsp;`"typings"`)
+1. ../node_modules/log4js/package.json&nbsp;(look&nbsp;for&nbsp;`"typings"`)
+1. ../../node_modules/log4js/package.json&nbsp;(look&nbsp;for&nbsp;`"typings"`)
+1. etc.
 1. ./node_modules/@types/log4js
 1. ../node_modules/@types/log4js
 1. ../../node_modules/@types/log4js

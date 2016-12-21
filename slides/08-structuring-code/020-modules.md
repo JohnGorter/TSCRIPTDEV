@@ -4,14 +4,14 @@ Using `export` or `import` will *determin* that your current ts file is a module
 
 ```typescript
 //  src/lib/math.ts
-export function sum (x, y) { 
-    return x + y 
+export function sum (x, y) {
+    return x + y
 };
-export var pi = 3.141593;
+export var pi = 3.141593;
 
-//  src/someApp.ts
+//  src/someApp.ts
 import * as math from './lib/math';
-console.log("2π = " + math.sum(math.pi, math.pi));
+console.log("2π = " + math.sum(math.pi, math.pi));
 
 //  src/otherApp.ts
 import { sum, pi } from './lib/math';
@@ -29,11 +29,12 @@ Imports can be relative or non-relative.
     - Is always relative to the current file.
     - Example: `import * as math from '../lib/math';`
 - Non-relative import <!-- .element class="fragment" data-fragment-index="1" -->
-    - Resolved using `node_modules` beceause of the `moduleResolution`.
+    - Resolved using `node_modules` because of the `--moduleResolution` flag.
     - Example: `import * as express from 'express'; `
+
 ---
 
-## Renaming modules 
+## Renaming modules
 
 To avoid conflicting names it's possible to rename `import` and `export` statements.
 
@@ -79,4 +80,4 @@ $("button").html( "Click me!");
 ```
 - Has to be at the top of a file. <!-- .element class="fragment" data-fragment-index="1" -->
 - It hints the compiler. <!-- .element class="fragment" data-fragment-index="2" -->
-    - The compiler is smart eneugh and doesn't need it anymore.
+    - Not needed anymore since we can use `tsconfig.json`
