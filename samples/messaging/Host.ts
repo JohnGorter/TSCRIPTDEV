@@ -5,13 +5,11 @@ import * as log4js from 'log4js';
 const log = log4js.getLogger('Host');
 
 class Host {
-    readonly childProcess: ChildProcess;
+    private readonly childProcess: ChildProcess;
 
     constructor() {
         // clone arguments and remove debug port (for running from vsc)
-        const args = process.execArgv.map(a => a)
-            .filter(arg => arg.substr(0, 11) !== '--debug-brk');
-        this.childProcess = fork(`${__dirname}/Worker.js`, [], { execArgv: args });
+        this.childProcess = fork(`./Worker.js`, [], { execArgv: [] });
         this.listenToChildProcess();
     }
 

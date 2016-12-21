@@ -1,7 +1,7 @@
 ## Agenda
 
 1. Introduction to TypeScript (NicoJS)
-1. Basic Types (NicoJS)
+1. Types (NicoJS)
 1. Variable declaration (NicoJS)
 1. Functions (Arrow functions, this pointer, GAGP)
 1. Interfaces (NicoJS)
