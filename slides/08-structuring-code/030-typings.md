@@ -21,9 +21,9 @@ interface Console {
 
 ---
 
-## Custom Typings
+## Custom declartion file.
 
-Generating your own custom `typings` can be done with the `declaration` compiler option.
+Generating your own custom `declaration files` can be done with the `declaration` compiler option.
 
 <!-- .element class="fragment" data-fragment-index="0" -->
 ```bash
@@ -36,7 +36,7 @@ Useful when you are writing your own library.
 
 <!-- .element class="fragment" data-fragment-index="1" -->
 
-Supplying your custom `typings` can be done inside the `package.json`.
+Supplying your custom `declaration files` can be done inside the `package.json`.
 
 <!-- .element class="fragment" data-fragment-index="2" -->
 
