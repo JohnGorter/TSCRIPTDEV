@@ -15,6 +15,9 @@
         }, {
             "taskName": "ts:compile-sample-lib",
             "isBuildCommand": true
+        }, {
+            "taskName": "ts:compile-sample-decorators",
+            "isBuildCommand": true
         }
     ]
 }

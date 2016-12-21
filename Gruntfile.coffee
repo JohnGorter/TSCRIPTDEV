@@ -96,6 +96,10 @@ module.exports = (grunt) ->
                 tsconfig:
                     tsconfig: 'samples/compiler-option-lib/tsconfig.json'
                     passThrough: true
+            'compile-sample-decorators':
+                tsconfig:
+                    tsconfig: 'samples/decorators/tsconfig.json'
+                    passThrough: true
 
     # Load all grunt tasks.
     require('./tasks/generate-list')
