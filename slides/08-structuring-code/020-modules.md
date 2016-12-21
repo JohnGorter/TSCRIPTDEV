@@ -68,3 +68,15 @@ $("button").html( "Click me!");
 ```
 
 <!-- .element class="fragment" data-fragment-index="1" -->
+
+---
+
+## Triple-Slash Directives
+
+- Single line comments containing a XML tag. <!-- .element class="fragment" data-fragment-index="0" -->
+```typescript
+///<reference path='../express/express.d.ts' />
+```
+- Has to be at the top of a file. <!-- .element class="fragment" data-fragment-index="1" -->
+- It hints the compiler. <!-- .element class="fragment" data-fragment-index="2" -->
+    - The compiler is smart eneugh and doesn't need it anymore.
