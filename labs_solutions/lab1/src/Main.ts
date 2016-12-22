@@ -1,4 +1,4 @@
-const bic: String = "TYPEDBANK";
+const bic: string = "TYPEDBANK";
 const upperBound: number = 999999999;
 
 const createBankAccountNumber = () => {
