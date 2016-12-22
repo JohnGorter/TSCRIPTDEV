@@ -103,6 +103,7 @@ module.exports = (grunt) ->
 
     # Load all grunt tasks.
     require('./tasks/generate-list')
+    require('./tasks/generate-pdf')
     require('load-grunt-tasks')(grunt)
 
     grunt.registerTask 'conventionalBuildIndex',
