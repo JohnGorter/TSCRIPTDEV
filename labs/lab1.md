@@ -12,11 +12,11 @@ Prerequisites:
     - Create a `package.json`.
         - ```npm init```
     - Install `TypeScript` as a local dev dependency
-        - ```npm install --save-dev typescript``` 
+        - ```npm install --save-dev typescript```
     - Create a `tsconfig.json`
         - Compile your code to `ES6`
-        - set `sourceMap` to 
-            
+        - set `sourceMap` to `true`
+
 1. Setup your favorite IDE.
     - If using VSCode look in the slides on how to do this.
 

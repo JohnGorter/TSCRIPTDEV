@@ -7,9 +7,12 @@
     "args": [
         "--no-color"
     ],
-    "showOutput": "always",
+    "showOutput": "silent",
     "tasks": [
         {
+            "taskName": "ts:compile-worksheet",
+            "isBuildCommand": true
+        }, {
             "taskName": "ts:compile-sample-messaging",
             "isBuildCommand": true
         }, {

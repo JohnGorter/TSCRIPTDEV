@@ -15,11 +15,11 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Compile worksheet",
-            "program": "${workspaceRoot}/node_modules/typescript/bin/tsc",
+            "name": "Run worksheet",
+            "program": "${workspaceRoot}/worksheet/worksheet.js",
             "cwd": "${workspaceRoot}",
-            "args": [
-            ],
+            "preLaunchTask": "ts:compile-worksheet",
+            "args": [ ],
             "outFiles": [],
             "sourceMaps": true
         }
