@@ -10,20 +10,34 @@ interface Literal {
     raw: string;
 }
 
-const node: Node;
-
+const node: Node = Math.random() > 0.5 ? { type: 'Literal', value: true, raw: '' } : {
+    type: 'Identifier',
+    name: 'nicojs'
+};
 
 const syntax: {
     readonly literal: 'Literal';
     readonly identifier: 'Identifier';
-}  = {
-    literal: 'Literal',
-    identifier: 'Identifier'
+} = {
+        literal: 'Literal',
+        identifier: 'Identifier'
+    }
+
+function handleLiteral(literal: Literal): number {
+    // Do complicated stuff
+    return 4;
 }
 
-if (node.type === syntax.literal) {
-    node// => type: Literal
-    node.value
-} else {
-    node// => type: Identifier
+function handleError(shouldntExist: never) {
+    console.error(`Node not handled: ${shouldntExist}`);
+}
+
+switch (node.type) {
+    case syntax.literal:
+        handleLiteral(node);
+        break;
+    default:
+        handleError(node);
+        // =>  Argument of type 'Identifier' is not assignable to parameter of type 'never'.
+        break;
 }
