@@ -1,22 +1,25 @@
 import { BankAccount } from './BankAccount';
 
-function auditLog(target: Object, propertyKey: string, descriptor: TypedPropertyDescriptor<any>) {
-    const originalMethod = descriptor.value;
+function auditLog(tcm: string) {
+    return function auditLog(target: Object, propertyKey: string, descriptor: TypedPropertyDescriptor<any>) {
+        const originalMethod = descriptor.value;
 
-    descriptor.value = (...args: any[]) => {
-        try {
-            const returnValue = originalMethod.apply(target, args);
-            console.log(`${propertyKey} succeeded with ${JSON.stringify(args)} => ${JSON.stringify(returnValue)}`);
-            return returnValue;
-        } catch (err) {
-            console.error(`${propertyKey} errored with ${JSON.stringify(args)}. Error was: ${JSON.stringify(err.message)}`);
+        descriptor.value = (...args: any[]) => {
+            try {
+                const returnValue = originalMethod.apply(target, args);
+                console.log(`${propertyKey} succeeded with ${JSON.stringify(args)} => ${JSON.stringify(returnValue)}`);
+                return returnValue;
+            } catch (err) {
+                console.error(`${propertyKey} errored with ${JSON.stringify(args)}. Error was: ${JSON.stringify(err.message)}`);
+                console.log(`${tcm}: Payment has failed.`);
+            }
         }
     }
 }
 
 export class PaymentService {
 
-    @auditLog
+    @auditLog('PaymentTCM')
     transferMoney(from: BankAccount, to: BankAccount, amount: number): void {
         if (from.balance - amount >= 0) {
             from.balance -= amount;
