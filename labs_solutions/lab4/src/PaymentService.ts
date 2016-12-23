@@ -1,29 +1,30 @@
 import { BankAccount } from './BankAccount';
 
-function balanceValidator(target: Object, propertyKey: string, descriptor: TypedPropertyDescriptor<any>) {
-    let originalMethod = descriptor.value;
+function auditLog(target: Object, propertyKey: string, descriptor: TypedPropertyDescriptor<any>) {
+    const originalMethod = descriptor.value;
 
-    descriptor.value = function (...args: any[]) {
-        let from: BankAccount = args[0];
-        let amount: number = args[2];
-
-        if (from.balance - amount >= 0) {
-            return originalMethod.apply(this, args);
-        } else {
-            console.error(`Balance of: ${from.accountNumber} was not high eneugh!`);
+    descriptor.value = (...args: any[]) => {
+        try {
+            const returnValue = originalMethod.apply(target, args);
+            console.log(`${propertyKey} succeeded with ${JSON.stringify(args)} => ${JSON.stringify(returnValue)}`);
+            return returnValue;
+        } catch (err) {
+            console.error(`${propertyKey} errored with ${JSON.stringify(args)}. Error was: ${JSON.stringify(err.message)}`);
         }
-    };
-
-    return descriptor;
+    }
 }
 
 export class PaymentService {
 
-    @balanceValidator
+    @auditLog
     transferMoney(from: BankAccount, to: BankAccount, amount: number): void {
-        from.balance -= amount;
-        to.balance += amount;
+        if (from.balance - amount >= 0) {
+            from.balance -= amount;
+            to.balance += amount;
 
-        console.log(`Money transfered form: ${from.accountNumber} to: ${to.accountNumber}`);
+            console.log(`Money transfered form: ${from.accountNumber} to: ${to.accountNumber}`);
+        } else {
+            throw new Error(`Balance of: ${from.accountNumber} was not high enough!`)
+        }
     }
 }

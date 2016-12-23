@@ -8,13 +8,13 @@ export class BankAccount {
         this.accountNumber = this.createBankAccountNumber();
     }
 
-    private createBankAccountNumber = () => {
+    private createBankAccountNumber() {
         const accountNumber: number = Math.floor(Math.random() * this.upperBound) + 1
 
         return `${this.bic}${accountNumber}`;
     }
 
-    printBalance = () => {
+    printBalance() {
         console.log(`Customer has: ${this.balance}`);
     }
 }

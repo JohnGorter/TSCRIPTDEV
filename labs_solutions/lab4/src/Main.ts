@@ -3,7 +3,7 @@ import { CustomerImpl as Customer } from './Customer'
 import { PaymentService } from './PaymentService';
 
 let customers: Customer[] = [
-    new Customer("Jack", "Sparrow", new BankAccount(500)),
+    new Customer("Jack", "Sparrow", new BankAccount()),
     new Customer("Elizabeth", "Turner", new BankAccount())
 ];
 
@@ -11,7 +11,7 @@ const paymentService = new PaymentService();
 
 function init() {
     customers.forEach(customer => {
-        console.log(customer.bankAccount.printBalance());
+        customer.bankAccount.printBalance();
     });
 }
 
