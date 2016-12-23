@@ -1,7 +1,7 @@
 ## Syntax
 
 @expression is used and must be evaluated to a function at runtime.
-Decorators can be applied in mutlple ways.
+Decorators can be applied in mutliple ways.
 
 ```
 @logClass
@@ -27,7 +27,7 @@ new Person('harry').mary(new Person('diane'));
 
 ## Syntax
 
-Decorators are just functions defined.
+Decorators are just functions.
 
 ```typescript
 function logMethod(target: Object, key: string, value: any) {
@@ -40,7 +40,6 @@ function logMethod(target: Object, key: string, value: any) {
             return value.value.apply(this, args);
         }
     };
-
 };
 ```
 
@@ -59,15 +58,18 @@ function logMethod(time: string) {
             value: function (...args: any[]) {
                 console.log(`Call: ${key} with 
                     ${JSON.stringify(args)} at: ${time}`);
-
                 return value.value.apply(this, args);
             }
         };
     }
 };
 
- @logMethod(new Date().toLocaleTimeString())
+@logMethod(new Date().toLocaleTimeString())
 ```
+
+Angular uses decorator factories.
+
+<!-- .element class="fragment" data-fragment-index="0" -->
 
 ---
 
@@ -78,4 +80,4 @@ There is a specific order decorators will be evaluated.
 1. Parameter, Method, Accessor, property decorators for each *instance* member.
 1. Parameter, Method, Accessor, property decorators for each *static* member.
 1. Parameter decorator for constructor.
-1. Class decorator class.
+1. Class decorator for class.

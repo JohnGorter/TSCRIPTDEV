@@ -24,26 +24,16 @@ For example emit metadata for typings.
 
 ## Use case
 
-A good example for decorators and metadata is json parsing.   
-A library is used to parse json to a typed class.
+Within Angular, they are mostely used for dependency injection using reflection.
 
-```json
-{
-  "firstName": "Jack",
-  "lastName": "Sparrow"
-}
+```typescript
+@Component({
+  selector: 'my-app',
+  template: `<h1>My application</h1>`})
+  class MyAppComponent { }
 ```
 
 ```typescript
-export class User {
-    firstName: string;
-    lastName: string;
-
-    getName() {
-        return `${this.firstName} ${this.lastName}`;
-    }
-}
-
-const user: User = plainToClass(User, json);
-user.getName(); // Jack Sparrow
+console.log(Reflect.getOwnMetadata('annotations', AppComponent)[0].selector);
+// 'my-app'
 ```
