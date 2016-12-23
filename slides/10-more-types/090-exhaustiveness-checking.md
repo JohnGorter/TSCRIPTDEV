@@ -8,7 +8,7 @@ Exhausted yet? Just checking
 
 ## Exhaustiveness checking
 
-How to let the compiler to tell us when we don't cover all variants?
+How to let the compiler tell us when we don't cover all variants?
 
 ```typescript
 function handleLiteral(literal: Literal) {

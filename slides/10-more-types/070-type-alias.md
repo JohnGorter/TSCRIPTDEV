@@ -25,7 +25,7 @@ const a: AorB = {};
 
 #### String literal types
 
-A common use case for a type alias is string literal union type.
+A common use case for a type alias is a string literal union type.
 
 ```typescript
 type TagName = 'img' | 'div' | 'p';
@@ -38,7 +38,7 @@ createElement('canvas');
 // is not assignable to parameter of type 'TagName'.
 ```
 
-**Question:** Why would you use this instead of an `enum` type?
+**Question:** Why not use an `enum` type?
 
 <!-- .element class="fragment" data-fragment-index="0" -->
 
