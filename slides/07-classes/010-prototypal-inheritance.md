@@ -75,14 +75,16 @@ ES6 classes are a big improvement!
 
 * Looks like classes in C# and Java
 * Required to use `new` to call the constructor function
-* inheritance is as simple as `extends`
+* Inheritance is as simple as `extends`
+* You can have `static` members
+* Support for properties (with `get` and `set`)
 
 But still missing some functionality. <!-- .element class="fragment" data-fragment-index="0" -->
 
 * No `abstract` classes
 * No access modifiers
-    * Everything is public
-* No types (of course)
+    * Everything is `public`
+* No static types (of course)
 
 <!-- .element class="fragment" data-fragment-index="0" -->
 

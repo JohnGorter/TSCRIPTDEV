@@ -4,8 +4,7 @@ Classes in TypeScript look slightly different
 
 ```typescript
 abstract class Point {
-    protected y: number;
-    constructor(protected x: number, y: number) { this.y = y; }
+    constructor(protected x: number, protected y: number) { }
 
     toString() {
         return `${this.x}, ${this.y}`;
@@ -25,24 +24,172 @@ class ColoredPoint extends Point {
 
 ## Classes in TypeScript
 
-Classes in TypeScript are more complete:
-* Able to use `abstract` classes and methods
-* Able to use `private`, `public` and `protected`
-* Able to use `static` members
-* Able to use generic classes
-* A class is always associated with a type
-
+Classes in TypeScript are more complete.
+* Supports `abstract` classes and methods
+* Supports `private`, `public` and `protected`
+* Supports generic classes
+* Supports explicit interface implementation with `implements`
+* A class is always associated with a static type
 ```typescript
 const point: ColoredPoint = new ColoredPoint(1, -3, 'red');
 ```
 
 ---
 
-## Constructor
+### Constructor
 
-A constructor
+A class can have exactly one `constructor`
+
+```typescript
+class Point {
+    private x: number;
+    private y: number;
+    constructor(x: number, y: number) {
+        this.x = x;
+        this.y = y;
+    }
+}
+```
+
+Constructors support the shortened syntax <!-- .element class="fragment" data-fragment-index="0" -->
+
+```typescript
+class Point {
+    constructor(private x: number, private y: number) { }
+}
+```
+<!-- .element class="fragment" data-fragment-index="0" -->
 
 ---
 
-## Static vs instance
+### Inheritance
 
+A common object-oriented pattern is *inheritance*.
+
+```typescript
+class Point {
+    constructor(protected x: number, protected y: number) { }
+    distance(other: Point) {
+        return Math.sqrt(Math.pow(this.x - other.x, 2) +
+            Math.pow(this.y - other.y, 2));
+    }
+}
+```
+
+```typescript
+class Point3D extends Point {
+    constructor(x: number, y: number, protected z: number) {
+        super(x, y);
+    }
+
+    distance(other: Point) {
+        const distance2D = super.distance(other);
+        if (other instanceof Point3D) {
+            return Math.sqrt(Math.pow(distance2D, 2)
+                + Math.pow(this.z - other.z, 2));
+        } else {
+            return distance2D;
+        }
+    }
+}
+```
+
+---
+
+
+### Access modifiers
+
+TypeScript supports `private`, `protected` and `public`
+
+```typescript
+class Point3D {
+    constructor(private x: number, protected y: number, public z: number) { }
+}
+
+class Child extends Point3D {
+    constructor(x: number, y: number, z: number) { super(x, y, z); }
+
+    public getX() { return this.x; }
+    // => Error: Property 'x' is private and only
+    // accessible within class 'Point3D'
+}
+
+new Point3D(0, 0, 0).y;
+// => Error Property 'y' is protected and only
+// accessible within class 'Point3D' and its subclasses.
+```
+
+**Question:** How does this translate to JavaScript?
+
+<!-- .element class="fragment" data-fragment-index="0" -->
+
+---
+
+### Accessors
+
+![es6](resources/es6.png) <!-- .element class="emblem" -->
+
+TypeScript supports ES6's `get` and `set`.
+
+```typescript
+class Person {
+    private _firstName: string;
+    private _lastName: string;
+
+    get fullName() {
+        return `${this._firstName} ${this._lastName}`;
+    }
+
+    set firstName(value: string) {
+        this._firstName = value;
+    }
+    set lastName(value: string) {
+        this._lastName = value;
+    }
+}
+```
+
+---
+
+### Static properties
+
+You can the `static` keyword to create properties belonging to the class itself, not instances of the class.
+
+```typescript
+class Point {
+    constructor(public x: number, public y: number) {
+        Point.origin; // => OK
+        this.origin;
+        // => error! Property 'origin' does not exist on type 'Point'.
+    }
+
+    static origin = new Point(0, 0);
+    static parse(pointValues: { x: number, y: number }) {
+        return new Point(pointValues.x, pointValues.y);
+    }
+}
+Point.parse({ x: 3, y: -5});
+```
+
+---
+
+### Readonly modifier
+
+You can use the `readonly` keyword to make a property readonly and force initialization in constructor or declaration.
+
+```typescript
+class Person {
+    static readonly favoriteDrink: 'beer';
+
+    constructor(readonly birthDate: Date) { }
+}
+
+const p = new Person(new Date(1986, 4, 30));
+p.birthDate = new Date(1993, 2, 4);
+// => error! Cannot assign to 'birthDate' because it is a
+//  constant or a read-only property.
+
+Person.favoriteDrink = 'water';
+// => error! Cannot assign to 'favoriteDrink' because it is a
+//  constant or a read-only property.
+```
