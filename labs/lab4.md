@@ -1,4 +1,4 @@
-Lab 3 - Decorators
+Lab 4 - Decorators
 
 If the exercise was not successful in the last lab, you can copy and paste the pervious solution from the *labs_solution* folder.
 
@@ -29,5 +29,5 @@ The board of directors of *TypedBank* would like that the *Typed control room* i
 There are many different control rooms so we need to prefix our log message with the correct control room when we use our `@auditLog` decorator.
 
 The log message should look like this: ```console.warn(`${tcm}: Payment has failed.`);```
-And the decorator should be look like this: `@auditLog('PaymentTCM')`
+And the decorator should look like this: `@auditLog('PaymentTCM')`
 
