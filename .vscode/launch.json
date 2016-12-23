@@ -16,7 +16,7 @@
             "type": "node",
             "request": "launch",
             "name": "Run worksheet",
-            "program": "${workspaceRoot}/worksheet/worksheet.js",
+            "program": "${workspaceRoot}/samples/worksheet/worksheet.js",
             "cwd": "${workspaceRoot}",
             "preLaunchTask": "ts:compile-worksheet",
             "args": [ ],

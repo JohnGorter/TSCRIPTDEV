@@ -90,7 +90,7 @@ module.exports = (grunt) ->
         ts:
             'compile-worksheet':
                 tsconfig:
-                    tsconfig: 'worksheet/tsconfig.json'
+                    tsconfig: 'samples/worksheet/tsconfig.json'
                     passThrough: true
             'compile-sample-messaging':
                 tsconfig:

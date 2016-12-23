@@ -7,4 +7,5 @@ dist
 *.pdf
 slides/list.json
 samples/**/*.js
+samples/**/*.map
 .tscache
