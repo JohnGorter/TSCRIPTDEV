@@ -3,13 +3,13 @@
 Add type annotations with a colon `:`, right after the declaration
 
 ```typescript
-let name:string = 'nicojs';
+let name: string = 'nicojs';
 
-function add(x:number, y:number):number {
+function add(x: number, y: number): number {
     return x + y;
 }
 
-let list:number[] = [2, 4, 5]; // Synonym: var list:Array<number>
+let list: number[] = [2, 4, 5]; // Synonym: var list:Array<number>
 
 let isEven: (number) => boolean = function (n: number) {
     return n % 2 === 0;

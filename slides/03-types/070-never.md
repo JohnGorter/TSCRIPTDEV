@@ -20,10 +20,3 @@ function logNever(value: never){
 **Question**: When would `never` be useful?
 
 <!-- .element class="fragment" -->
-
----
-
-TypeScript tries to leap the gap between astronomy and quantom mechanics using `never`.
-
-
-Something should not happen, but it might. Therefore, we better handle those cases appropriately.

@@ -39,6 +39,6 @@
 
 ---
 
-> **TypeScript** is like astronomy. Everything is can be calculated and measured. <br /><br />
+> **TypeScript** is like astronomy. Everything can be calculated and measured. <br /><br />
 **JavaScript** is like quantum mechanics. Nothing is certain and everything can and will happen. <br /><br />
 Yet **both of them** exist and represent the same world.

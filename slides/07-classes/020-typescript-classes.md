@@ -3,20 +3,22 @@
 Classes in TypeScript look slightly different
 
 ```typescript
-abstract class Point {
-    constructor(protected x: number, protected y: number) { }
-
-    toString() {
-        return `${this.x}, ${this.y}`;
+class Point {
+    x: number; y: number;
+    constructor(x: number, y: number) {
+        this.x = x; this.y = y;
     }
+
+    toString() { return `${this.x}, ${this.y}`; }
 }
 
 class ColoredPoint extends Point {
-    constructor(x: number, y: number, private color: string) { super(x, y); }
-
-    toString() {
-        return `${super.toString()} in ${this.color}`;
+    private color: string;
+    constructor(x: number, y: number, private color: string) {
+        super(x, y); this.color = color;
     }
+
+    toString() { return `${super.toString()} in ${this.color}`; }
 }
 ```
 
@@ -147,6 +149,13 @@ class Person {
         this._lastName = value;
     }
 }
+```
+
+```typescript
+const p = new Person();
+p.firstName = 'Albert';
+p.lastName = 'Einstein';
+p.fullName; // => Albert Einstein
 ```
 
 ---

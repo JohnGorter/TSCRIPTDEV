@@ -32,12 +32,18 @@ function handleError(shouldntExist: never) {
     console.error(`Node not handled: ${shouldntExist}`);
 }
 
-switch (node.type) {
-    case syntax.literal:
-        handleLiteral(node);
-        break;
-    default:
-        handleError(node);
-        // =>  Argument of type 'Identifier' is not assignable to parameter of type 'never'.
-        break;
-}
+// switch (node.type) {
+//     case syntax.literal:
+//         handleLiteral(node);
+//         break;
+//     default:
+//         handleError(node);
+//         // =>  Argument of type 'Identifier' is not assignable to parameter of type 'never'.
+//         break;
+// }
+
+const p1 = Promise.resolve(42);
+const p2 = Promise.resolve("42");
+Promise.race([p1, p2]).then(result =>
+    result // => 2
+)
