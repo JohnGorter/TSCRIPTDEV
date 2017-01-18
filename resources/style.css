@@ -1,0 +1,90 @@
+.reveal img.small-logo {
+    max-width: 300px;
+    max-height: 200px;
+}
+
+.reveal img.img-in-text {
+  vertical-align: middle;
+}
+
+.reveal h1 {
+   color: #fff;
+}
+
+.reveal .col {
+    flex: 1 1 0;
+    padding-right: 40px;
+    text-align: left;
+}
+
+.reveal .flex {
+    display: flex;
+}
+
+.reveal .no-list-style-type {
+  list-style-type: none;
+}
+
+.reveal .facilities-icon-container {
+    color: #00539F;
+    width: 80px;
+    text-align: center;
+    display: inline-block;
+}
+
+.reveal i.icon-big {
+    color: #A80000;
+    font-size: 4em;
+}
+
+.reveal *:not(pre)>code {
+    color: #900;
+    font-size: 0.7em;
+    background-color: #efefef;
+}
+
+.reveal section img {
+    background: none;
+}
+
+.reveal .emblem {
+  right: 30px;
+  position: absolute;
+  top: 0;
+  width: 100px;
+}
+
+.reveal .col pre {
+    margin: 0;
+    width: 100%;
+}
+
+.reveal .emblem {
+  right: 30px;
+  position: absolute;
+  top: 0;
+  width: 100px;
+}
+
+.reveal .pin-max-height {
+    max-height: 550px;
+}
+
+.reveal .slides section.lab {
+    background-color: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 0 5px 5px white;
+    padding: 0 20px;
+    border-radius: 30px;
+}
+.reveal .slides section.lab h2 {
+    font-variant: small-caps;
+    font-weight: bold;
+}
+
+.reveal .pin-height-400 {
+    max-height: 400px;
+}
+
+.reveal .pin-height-100 {
+    max-height: 100px;
+}
