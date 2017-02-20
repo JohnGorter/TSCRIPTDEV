@@ -1,6 +1,6 @@
 ## Modules
 
-Using `export` or `import` will *determin* that your current ts file is a module.
+Using `export` or `import` will *determine* that your current ts file is a module.
 
 ```typescript
 //  src/lib/math.ts
