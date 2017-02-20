@@ -1,0 +1,7 @@
+{
+  "generator-reveal-infosupport": {
+    "presentationTitle": "TypeScript",
+    "packageVersion": "0.1.0",
+    "deployToGithubPages": false
+  }
+}
