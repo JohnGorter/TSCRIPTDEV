@@ -27,7 +27,7 @@ output in `tsconfig.json`:
 
 ## Include & Exclude files
 
-Exclude files that don't want to ignore.
+Choose which files to target
 
 ```json
     "include": [

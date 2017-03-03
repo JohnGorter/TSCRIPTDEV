@@ -1,6 +1,6 @@
 ## Discriminated Unions
 
-Combine string literal types, union types, type guards and type aliases.
+Combine literal types, union types, type guards and type aliases.
 
 ```typescript
 interface Identifier {
@@ -8,21 +8,21 @@ interface Identifier {
     name: string;
 }
 interface Literal {
-    type: "Literal";
+    type: 'Literal';
     value: string | boolean | number | null;
     raw: string;
 }
 type Node = Identifier | Literal;
 
 const node: Node = /**/;
-if (node.type === 'Literal') { // => OK, all types have a `type`
+if (node.type === 'Literal') { // => OK, all unified types have a `type`
     node// => type: Literal
 } else {
     node// => type: Identifier
 }
 ```
 
-It might look complicated, but can be extremly powerful
+A bit complicated, but extremely powerful
 
 <!-- .element class="fragment" data-fragment-index="0" -->
 

@@ -90,7 +90,7 @@ With great power comes great responsibility.
         </tr>
         <tr>
             <td>`typeof x === 'string'`, <br />`typeof x === 'number'`, etc.</td>
-            <td>Any primitive type</td>
+            <td>`string`, `number`, etc</td>
         </tr>
         <tr>
             <td>`a instanceof Class`</td>

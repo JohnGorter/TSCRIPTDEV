@@ -164,7 +164,7 @@ p.fullName; // => Albert Einstein
 
 ![es6](resources/es6.png) <!-- .element class="emblem" -->
 
-You can the `static` keyword to create properties belonging to the class itself, not instances of the class.
+Use the `static` keyword to create properties belonging to the class itself, not instances of the class.
 
 ```typescript
 class Point {

@@ -24,13 +24,13 @@ For example emit metadata for typings.
 
 ## Use case
 
-Within Angular, they are mostely used for dependency injection using reflection.
+Within Angular, they are mostly used for dependency injection using reflection.
 
 ```typescript
 @Component({
   selector: 'my-app',
   template: `<h1>My application</h1>`})
-  class MyAppComponent { }
+class MyAppComponent { }
 ```
 
 ```typescript

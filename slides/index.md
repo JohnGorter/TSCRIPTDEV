@@ -2,7 +2,8 @@
 
 ![TypeScript](resources/logo.svg)
 
-![Microsoft](resources/Microsoft_logo.svg) <!-- .element class="small-logo" -->
-![Angular](resources/angular-icon.svg) <!-- .element class="small-logo" -->
-![Open Source](resources/open-source.svg) <!-- .element class="small-logo" -->
-![vscode](resources/vscode.png) <!-- .element class="small-logo" -->
+![Microsoft](resources/Microsoft_logo.svg) <!-- .element class="smaller-logo" -->
+![Angular](resources/angular-icon.svg) <!-- .element class="smaller-logo" -->
+![Open Source](resources/open-source.svg) <!-- .element class="smaller-logo" -->
+![vscode](resources/vscode.png) <!-- .element class="smaller-logo" -->
+![Stryker](resources/stryker_205x205.png) <!-- .element class="smaller-logo" -->

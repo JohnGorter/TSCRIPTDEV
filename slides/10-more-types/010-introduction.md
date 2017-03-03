@@ -10,6 +10,7 @@ To do that, we need some advanced tools.
 1. Type guards
 1. Type alias
 1. Discriminated Unions
-1. Exhaustiveness checking
+1. Exhaustiveness&nbsp;checking
 1. Index types
+1. Mapped types
 

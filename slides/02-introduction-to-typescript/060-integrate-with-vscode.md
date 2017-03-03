@@ -1,6 +1,6 @@
 ## Integrate with vscode
 
-![vscode](resources/vscode.png) <!-- .element class="small-logo" -->
+![vscode](resources/vscode.png) <!-- .element class="smaller-logo" -->
 
 Integrate your workflow in vscode.
 

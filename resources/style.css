@@ -3,6 +3,11 @@
     max-height: 200px;
 }
 
+.reveal img.smaller-logo {
+    max-width: 180px;
+    max-height: 200px;
+}
+
 .reveal img.img-in-text {
   vertical-align: middle;
 }

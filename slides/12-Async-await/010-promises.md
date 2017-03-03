@@ -110,6 +110,8 @@ Promise.race([p1, p2]).then(result =>
 
 <!-- .element class="fragment" data-fragment-index="0" -->
 
+---
+
 ## Promise types
 
 In TypeScript, a promise is a defined generic type.

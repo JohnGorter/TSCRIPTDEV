@@ -1,11 +1,7 @@
 ## Decorators
 
-- Introduced with ECMAScript 6. 
-<!-- .element class="fragment" data-fragment-index="0" -->
-- Provides a way to use annotations and meta-programming syntax.
-<!-- .element class="fragment" data-fragment-index="1" -->
-- Stage 1 proposal for ECMAScript 6.
-<!-- .element class="fragment" data-fragment-index="2" -->
+* Provides a way to use annotations and meta-programming syntax.
+* <!-- .element class="fragment" data-fragment-index="2" --> [Stage 2 proposal for EcmaScript](https://tc39.github.io/proposal-decorators/) <!-- .element target="_blank" --> as of januari 2017.
 
 ** Decorators are an experimental feature that may change in the future.**
 <!-- .element class="fragment" data-fragment-index="2" -->

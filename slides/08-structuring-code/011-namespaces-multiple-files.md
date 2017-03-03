@@ -12,7 +12,7 @@ namespace validation {
 // firstNameValidator.ts
 namespace validation {
     export class firstNameValidator implements validator {
-        validate() { /* Implentation omitted. */}  
+        validate() { /* Todo */}
     }
 }
 ```
@@ -21,7 +21,7 @@ namespace validation {
 
 ## Distributing namespaced files
 
-There are two ways of distributing the code. 
+There are two ways of distributing the code.
 
 1. compile all files into one file. <!-- .element class="fragment" data-fragment-index="0" -->
 ```bash

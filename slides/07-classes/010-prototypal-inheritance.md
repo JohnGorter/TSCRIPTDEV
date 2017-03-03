@@ -82,8 +82,7 @@ ES6 classes are a big improvement!
 But still missing some functionality. <!-- .element class="fragment" data-fragment-index="0" -->
 
 * No `abstract` classes
-* No access modifiers
-    * Everything is `public`
+* Everything is `public`
 * No static types (of course)
 
 <!-- .element class="fragment" data-fragment-index="0" -->

@@ -12,10 +12,10 @@
 
 ---
 
-## Lib option
+## `--lib` option
 
-- List of librarys to include with compilation.
-- To `ES5` and make use of the `ES6` Promise library.
+- List of libraries to include with compilation.
+- For example: use `ES5` but include `es2015.promise` library.
 
 ---
 
@@ -26,7 +26,7 @@
 
 ---
 
-## SourceMap option
+## `--sourceMap` option
 
 Generate corresponding `.map.js` files. Useful for debugging in IDE or browser.
 
@@ -34,7 +34,7 @@ Generate corresponding `.map.js` files. Useful for debugging in IDE or browser.
 
 ---
 
-## Module option
+## `--module` option
 
 Module defines what code to output for `import` and `export` statements.
 
@@ -43,8 +43,6 @@ Module defines what code to output for `import` and `export` statements.
 <!-- .element class="fragment" data-fragment-index="0" -->
 
 ```typescript
-//TypeScript
-
 import * as express from 'express';
 export let app = express();
 ```
@@ -52,8 +50,7 @@ export let app = express();
 <!-- .element class="fragment" data-fragment-index="0" -->
 
 ```javascript
-//Generated JavaScript
-
+// Generated JavaScript
 "use strict";
 const express = require('express');
 exports.app = express();
@@ -63,7 +60,7 @@ exports.app = express();
 
 ---
 
-## Module option
+## `--module` option
 
 `amd`
 
