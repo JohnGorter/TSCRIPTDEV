@@ -17,7 +17,7 @@
     "log4js": "^1.0.1",
     "markdown-pdf": "^7.0.0",
     "mz": "^2.6.0",
-    "typescript": "^2.1.4"
+    "typescript": "^2.2.1"
   },
   "engines": {
     "node": ">=0.10.0",

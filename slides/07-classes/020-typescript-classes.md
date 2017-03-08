@@ -204,3 +204,32 @@ Person.favoriteDrink = 'water';
 // => error! Cannot assign to 'favoriteDrink' because it is a
 //  constant or a read-only property.
 ```
+
+---
+
+## Type association
+
+A class can be used as an interface.
+
+```typescript
+class Point {
+    constructor(public x: number, public y: number){}
+}
+
+interface Coordinated extends Point {
+    z: number;
+}
+
+class OriginPoint implements Point {
+    x = 0;
+    y = 0;
+}
+```
+
+**Question:** What happens here?
+
+<!-- .element class="fragment" data-fragment-index="0" -->
+
+Use the *shape* of the class
+
+<!-- .element class="fragment" data-fragment-index="1" -->

@@ -8,4 +8,6 @@ dist
 slides/list.json
 samples/**/*.js
 samples/**/*.map
+labSolutions/**/*.js
+labSolutions/**/*.map
 .tscache

@@ -7,6 +7,13 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Lab 6",
+            "program": "${workspaceRoot}/labSolutions/lab6/src/main.js",
+            "cwd": "${workspaceRoot}"
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Run sample messaging",
             "program": "${workspaceRoot}/samples/messaging/Host.js",
             "cwd": "${workspaceRoot}/samples/messaging/",
