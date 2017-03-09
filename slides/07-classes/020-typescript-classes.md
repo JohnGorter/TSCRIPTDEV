@@ -98,7 +98,6 @@ class Point3D extends Point {
 
 ---
 
-
 ### Access modifiers
 
 TypeScript supports `private`, `protected` and `public`
@@ -230,6 +229,24 @@ class OriginPoint implements Point {
 
 <!-- .element class="fragment" data-fragment-index="0" -->
 
-Use the *shape* of the class
+---
 
-<!-- .element class="fragment" data-fragment-index="1" -->
+## Constructor functions
+
+Defining a class does 2 things.
+
+1. Create the *Constructor function* (or `class` in es6)
+1. Create the type which describes the *shape* of the class.
+
+```typescript
+class Point {
+    constructor(public x: number, public y: number){}
+}
+const PointCopy = Point;
+```
+
+<!-- .element class="fragment" data-fragment-index="0" -->
+
+**Question:** What is the type of the PointCopy here?
+
+<!-- .element class="fragment" data-fragment-index="0" -->
