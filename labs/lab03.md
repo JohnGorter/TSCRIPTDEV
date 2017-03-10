@@ -7,7 +7,7 @@
     * Declare a constant variable called `bic` with value `'TYPEDBANK'`.
     * Declare a constant variable called `upperBound` with value 999999999;
     * Declare the function `createAccountNumber`. It should return a new accountNumber as a string. Implement it using `Math.floor(Math.random() * upperBound) + 1` to determine the number.
-    * Return the bank account number (bic and accountNumber) with as a new object with the 2 properties. It should look like: `{ bic: 'TYPEDBANK', number: 523432512 }`.
+    * Return the bank account number (bic and accountNumber) with a a new object with the 2 properties. It should look like: `{ bic: 'TYPEDBANK', number: 523432512 }`.
 1. Add a `toString` method to the account number object. Return the string representation of the account number like `'TYPEDBANK 523432512'`. Try to use a *templated string*.
 
 ## Exercise 2 - Create customers
