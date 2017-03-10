@@ -6,21 +6,21 @@ Decorators can be applied in mutliple ways.
 ```
 @logClass
 class Person {
-    @logProperty("Person married? %b") married: boolean = false; 
-  
+    @logProperty("Person married? %b") married: boolean = false;
+
     constructor(private name: string) {
     }
 
     @logMethod
-    mary(@logParameter otherPerson: Person) {
-        console.log(`${this.name} maries to ${otherPerson.name}`)
+    marry(@logParameter otherPerson: Person) {
+        console.log(`${this.name} marries to ${otherPerson.name}`)
     }
 }
 
-new Person('harry').mary(new Person('diane'));
+new Person('harry').marry(new Person('diane'));
 
-// Call: mary with [{"name":"diane"}]
-// harry maries to diane
+// Call: marry with [{"name":"diane"}]
+// harry marries to diane
 ```
 
 ---
@@ -56,7 +56,7 @@ function logMethod(time: string) {
 
         return {
             value: function (...args: any[]) {
-                console.log(`Call: ${key} with 
+                console.log(`Call: ${key} with
                     ${JSON.stringify(args)} at: ${time}`);
                 return value.value.apply(this, args);
             }
@@ -75,7 +75,7 @@ Angular uses decorator factories.
 
 ## Decorator evaluation
 
-There is a specific order decorators will be evaluated. 
+There is a specific order decorators will be evaluated.
 
 1. Parameter, Method, Accessor, property decorators for each *instance* member.
 1. Parameter, Method, Accessor, property decorators for each *static* member.
