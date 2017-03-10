@@ -29,5 +29,22 @@ For this exercise we'll use the express web server.
 
 ## Exercise 3 (if time permits)
 
-1. Implement the HTTP POST on /api/accounts. It should add the provided JSON customer to the current bank and return a 204 - No Content. Tip: you might need the `body-parser` now.
+1. Implement the HTTP POST on /api/accounts. It should add the provided JSON customer to the current bank and return a 204 - No Content. Tip: you might need the `'body-parser'` now.
+1. If the post is implemented. Try it out with a tool like Postman or an HttpRequester browser plugin.
+1. Don't forget to implement some validation. These customers are invalid:
 
+```json
+{
+	"firstName": "only firstname"
+}
+
+{
+	"lastName": "only lastname"
+}
+
+{
+	"firstName": "John",
+	"lastName": "Doe",
+    "preposition": 42
+}
+```
