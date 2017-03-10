@@ -29,7 +29,7 @@ const createCustomer = (firstName: string, lastName: string, preposition?: strin
 
 const createBankAccount = (customer: any) => {
     return {
-        customer,
+        customer: customer,
         number: createAccountNumber(),
         toString(){
             return `[${this.number.toString()}] ${this.customer.toString()}`
@@ -42,5 +42,6 @@ const bankAccounts = [
     createBankAccount(createCustomer('Brad', 'Pit')),
     createBankAccount(createCustomer('Jack', 'Sparrow'))
 ];
+
 
 bankAccounts.forEach(bankAccount => console.log(bankAccount.toString()));

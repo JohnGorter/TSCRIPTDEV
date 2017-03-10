@@ -1,15 +1,16 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
+        "module": "system",
         "target": "es5",
         "noImplicitAny": true,
-        "sourceMap": true,
+        "sourceMap": false,
         "allowUnreachableCode": false,
         "forceConsistentCasingInFileNames": true,
         "noImplicitReturns": true,
         "noImplicitThis": true,
         "noEmitOnError": true,
         "noFallthroughCasesInSwitch": true,
+        "outFile": "../public/client.js",
         "lib": [
             "es5",
             "dom",

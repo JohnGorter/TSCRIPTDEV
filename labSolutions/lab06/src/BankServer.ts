@@ -20,14 +20,31 @@ export class BankServer {
 
     private createRouter() {
         const router = express.Router({ caseSensitive: false });
-        router.get('/bank', (_, response) => response.json(this.bank.config));
+        router.get('/bank', (_, response) => {
+            console.log('Requested /api/bank');
+            response.json(this.bank.config);
+        });
+
+
         router.route('/accounts')
             .get((_, response) => response.json(this.bank.accounts))
             .post((request, response) => {
-                this.bank.createAccount(request.body);
-                response.status(204);
-                response.end();
+                if (this.customerIsValid(request.body)) {
+                    this.bank.createAccount(request.body);
+                    response.status(204);
+                    response.end();
+                } else {
+                    response.status(422);
+                    response.end('Customer entity invalid');
+                }
             });
         return router;
+    }
+
+    private customerIsValid(customer: any) {
+        return customer
+            && customer.firstName && typeof customer.firstName === 'string'
+            && customer.lastName && typeof customer.lastName === 'string' &&
+            (!customer.preposition || typeof customer.preposition === 'string');
     }
 }

@@ -10,6 +10,7 @@
         "noImplicitThis": true,
         "noEmitOnError": true,
         "noFallthroughCasesInSwitch": true,
+        "types": [],
         "lib": [
             "es2015"
         ]

@@ -30,7 +30,6 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-
                 <h2>Add Bank account</h2>
             </div class="col-md-12">
         </div>
@@ -38,9 +37,18 @@
             <div class="col-md-12">
                 <form class="form" name="customer">
                     <div class="form-group">
-                        <label for="nameInput">Name</label>
-                        <input id="nameInput" name="name" type="text" class="form-control">
+                        <label for="nameInput">First name</label>
+                        <input id="nameInput" name="firstName" type="text" class="form-control">
                     </div>
+                    <div class="form-group">
+                        <label for="nameInput">Last name</label>
+                        <input id="nameInput" name="lastName" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="nameInput">Preposition</label>
+                        <input id="nameInput" name="preposition" type="text" class="form-control">
+                    </div>
+                    <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i></button>
                 </form>
             </div>
         </div>
@@ -51,7 +59,11 @@
             <td class="name"></td>
         </tr>
     </template>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.20.9/system.js"></script>
     <script src="client.js"></script>
+    <script>
+        SystemJS.import('client/client');
+    </script>
 </body>
 
 </html>

@@ -10,7 +10,7 @@ interface AccountNumber {
 interface Customer {
     firstName: string;
     lastName: string;
-    preposition: string;
+    preposition?: string;
 }
 
 interface BankAccount {
