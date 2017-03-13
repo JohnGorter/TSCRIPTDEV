@@ -14,19 +14,14 @@ export class BankServer {
         const router = this.createRouter();
         this.app.use(bodyParser.json());
         this.app.use('/api', router);
-        this.app.use('/', express.static('public'));
+        this.app.use(express.static('public'));
         this.app.listen(this.bank.config.port);
         console.log(`Bank ${this.bank.config.name} listening on port ${this.bank.config.port}`);
     }
 
     private createRouter() {
         const router = express.Router({ caseSensitive: false });
-        router.get('/bank', (_, response) => {
-            console.log('Requested /api/bank');
-            response.json(this.bank.config);
-        });
-
-
+        router.get('/bank', (_, response) => response.json(this.bank.config));
         router.route('/accounts')
             .get((_, response) => response.json(this.bank.accounts))
             .post((request, response) => {
@@ -35,7 +30,7 @@ export class BankServer {
                     response.status(204);
                     response.end();
                 } else {
-                    response.status(422);
+                    response.status(522);
                     response.end('Customer entity invalid');
                 }
             });

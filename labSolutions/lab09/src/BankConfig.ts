@@ -1,6 +1,7 @@
 export interface BankConfig {
     bic: string;
-    language: 'nl' | 'fr' | 'en';
+    language: string;
     name: string;
     port: number;
+
 }
