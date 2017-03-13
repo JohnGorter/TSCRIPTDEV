@@ -17,3 +17,8 @@ class CoordinatedPoint implements Coordinated{
     y: number;
     x: number
 }
+
+class Point {
+    constructor(public x: number, public y: number){}
+}
+const PointCopy = Point;

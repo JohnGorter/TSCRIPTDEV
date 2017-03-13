@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watchify": "watchify client/client.js -o public/client.js -v"
   },
   "keywords": [],
   "author": "",

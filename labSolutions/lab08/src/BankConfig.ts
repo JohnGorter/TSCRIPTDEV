@@ -3,4 +3,5 @@ export interface BankConfig {
     language: string;
     name: string;
     port: number;
+
 }

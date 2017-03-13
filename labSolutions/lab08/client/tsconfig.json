@@ -3,19 +3,18 @@
         "module": "system",
         "target": "es5",
         "noImplicitAny": true,
+        "sourceMap": false,
+        "allowUnreachableCode": false,
+        "forceConsistentCasingInFileNames": true,
         "noImplicitReturns": true,
         "noImplicitThis": true,
-        "noFallthroughCasesInSwitch": true,
         "noEmitOnError": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "forceConsistentCasingInFileNames": true,
-        "sourceMap": true,
+        "noFallthroughCasesInSwitch": true,
+        "outFile": "../public/client.js",
         "lib": [
             "es5",
             "dom",
             "es2015.promise"
-        ],
-        "outFile": "../public/client.js"
+        ]
     }
 }
