@@ -30,7 +30,7 @@ A bit complicated, but extremely powerful
 
 ### Discriminate using an object
 
-You can even discriminated using a readonly object
+You can even discriminate using a readonly object
 
 ```typescript
 const syntax: {
