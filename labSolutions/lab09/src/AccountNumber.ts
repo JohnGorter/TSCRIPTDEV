@@ -2,9 +2,18 @@ const upperBound = 999999999;
 
 export class AccountNumber {
     value: number;
+    public bic: string
 
-    constructor(public bic: string) {
-        this.value = Math.floor(Math.random() * upperBound) + 1;
+    constructor(bic: string)
+    constructor(copy: AccountNumber)
+    constructor(bicOrCopy: AccountNumber | string) {
+        if (typeof bicOrCopy === 'string') {
+            this.bic = bicOrCopy;
+            this.value = Math.floor(Math.random() * upperBound) + 1;
+        } else {
+            this.bic = bicOrCopy.bic;
+            this.value = bicOrCopy.value;
+        }
     }
 
     toString() {

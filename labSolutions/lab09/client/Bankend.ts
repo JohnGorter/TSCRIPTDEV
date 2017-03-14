@@ -12,25 +12,27 @@ const mapCustomer = (customerJson: any): Customer =>
 
 export class Backend {
 
-    bank(): Promise<BankConfig> {
-        return fetch('/api/bank')
-            .then(response => response.json() as Promise<BankConfig>);
+    async bank(): Promise<BankConfig> {
+        const response = await fetch('/api/bank')
+        return response.json();
     }
 
-    accounts(): Promise<BankAccount[]> {
-        return fetch('/api/accounts')
-            .then(response => response.json() as Promise<any[]>)
-            .then(accountsJson => accountsJson.map(mapBankAccount));
+    async accounts(): Promise<BankAccount[]> {
+        const response = await fetch('/api/accounts');
+        const bankAccounts: BankAccount[] = await response.json();
+        return bankAccounts.map(bankAccountJson => new BankAccount(bankAccountJson));
     }
 
-    addAccount(customer: Customer): Promise<BankAccount> {
-        return fetch('/api/accounts', {
+    async addAccount(customer: Customer): Promise<BankAccount> {
+        const response = await fetch('/api/accounts', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(customer)
-        }).then(response => response.json() as Promise<BankAccount>);
+        });
+        const bankAccountJson: BankAccount = await response.json();
+        return new BankAccount(bankAccountJson);
     }
 
 }

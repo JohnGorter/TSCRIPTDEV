@@ -1,3 +1,4 @@
+import { Customer } from './Customer';
 import { Bank } from './Bank';
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
@@ -26,9 +27,7 @@ export class BankServer {
             .get((_, response) => response.json(this.bank.accounts))
             .post((request, response) => {
                 if (this.customerIsValid(request.body)) {
-                    this.bank.createAccount(request.body);
-                    response.status(204);
-                    response.end();
+                    response.json(this.bank.createAccount(new Customer(request.body)));
                 } else {
                     response.status(522);
                     response.end('Customer entity invalid');
@@ -37,7 +36,7 @@ export class BankServer {
         return router;
     }
 
-    private customerIsValid(customer: any) {
+    private customerIsValid(customer: any): customer is Customer {
         return customer
             && customer.firstName && typeof customer.firstName === 'string'
             && customer.lastName && typeof customer.lastName === 'string' &&

@@ -8,9 +8,10 @@ export class Bank {
 
     constructor(readonly config: BankConfig) { }
 
-    public createAccount(customer: Customer){
+    public createAccount(customer: Customer): BankAccount {
         const account = new BankAccount(customer, this.config.bic);
         this.accounts.push(account);
         console.log(`[${this.config.name}] welcomes ${account.toString()}`);
+        return account;
     }
 }
