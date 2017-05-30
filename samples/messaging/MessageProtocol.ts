@@ -1,5 +1,5 @@
 
-export type HostMessage = RunMessage | StartMessage | EmptyAdapterMessage;
+export type HostMessage = RunMessage | StartMessage | EmptyAdapterMessage | QuackMessage;
 export type WorkerMessage = ResultMessage | EmptyWorkerMessage;
 
 export interface ResultMessage {
@@ -19,6 +19,10 @@ export interface StartMessage {
 
 export interface EmptyAdapterMessage {
   kind: 'init' | 'dispose';
+}
+
+export interface QuackMessage {
+    kind: 'quack'
 }
 
 export interface EmptyWorkerMessage {

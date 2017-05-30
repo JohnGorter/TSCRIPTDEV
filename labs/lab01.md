@@ -1,23 +1,89 @@
-# Lab 1 - Getting started
+# Lab 1 - debug the casino-app
 
-## Exercise 1 - Setting up a new project.
+Prerequisites: latest version of vscode installed
 
-Prerequisites:
-    - NodeJS installed
-    - NPM installed
+1. Open vscode in an empty directory
+1. Copy paste the "Casino app code" to a new file named "casino-app.js".
+1. There might be some bugs in the code try to find them all WITHOUT running the code.
+1. Now add this as a first line: `// @ts-check`
+1. Can you now find more bugs?
 
-1. Create an empty working directory. Open that directory in the command line of your choice.
-1. Initialize a new TypeScript project.
-    - Create a `package.json`.
-        - `npm init --yes`
-    - Install TypeScript as a local dev dependency
-        - `npm install --save-dev typescript`
-    - Create a `tsconfig.json`
-        - `./node_modules/.bin/tsc init`
-        - Compile your code to `ES6`
-        - set `sourceMap` to `true`
-1. Setup your favorite IDE.
-    - If using VSCode look in the slides on how to do this.
-1. Create a file `main.ts`. This will be the home of our TypeScript application for now.
-1. Play around with a hello world type application. Make sure errors are displayed in your IDE.
-1. Try out some constructs you know from JavaScript, like `function`s, `if`-`else`, `for`, `while`
+**Casino app code:**
+
+```javascript
+class Person {
+    /**
+     * @param {string} name
+     */
+    constructor(name) {
+        this._name = name;
+    }
+}
+
+class Player extends Person {
+    /**
+     *
+     * @param {string} name
+     * @param {number} chips
+     */
+    constructor(name, chips) {
+        this.chips = chips;
+    }
+
+    toString() {
+        return `${this.name} has ${chips} number of chips left`;
+    }
+}
+
+var playerOne = new Player('Han', 46);
+var playerTwo = new Player('Leia', 68);
+
+var highestNumberOfChips = Math.max([playerOne.chips, playerTwo.chips]);
+console.log(highestNumberOfChips + ' is the highest number of chips');
+
+class RouletteBoard {
+
+    constructor() {
+        this.bedRecords = [];
+    }
+
+    /**
+       *
+       * @param {Player} player
+       * @param {number} bed
+       */
+    placeBed(player, bed) {
+        var record = this.records.find(r => r.player === player && r.bed === bed);
+        if (!record) {
+            record = { player: player, bed: bed, numberOfChips: 0 };
+            this.bedRecords.add(record);
+        }
+        record.numberOfChips++;
+    }
+
+    play() {
+        var winner = Math.floor(Math.random() * 36);
+        console.log('winning number: ' + winner);
+        for (var record in this.bedRecords) {
+            if (this.bedRecords[record].bed === winner) {
+                var loot = this.bedRecords[record].numberOfChips * 10;
+                this.bedRecords[record].player.chips += loot;
+                console.log(this.bedRecords[record].player.toString() + ' wins ' + loot);
+            }
+        }
+        this.bedRecords = [];
+    }
+}
+
+var roulette = new RouletteBoard();
+roulette.placeBed(playerOne, 20);
+roulette.placeBed(playerOne, 20);
+roulette.placeBed(playerTwo, 1);
+roulette.placeBed(playerTwo, 2);
+roulette.placeBed(playerTwo, 6);
+roulette.placeBed(playerTwo, 31);
+roulette.placeBed(playerTwo, 5);
+roulette.placeBed(playerTwo, 4);
+
+roulette.play();
+```

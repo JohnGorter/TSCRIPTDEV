@@ -1,9 +1,9 @@
 ## Syntax
 
 @expression is used and must be evaluated to a function at runtime.
-Decorators can be applied in mutliple ways.
+Decorators can be applied in multiple ways.
 
-```
+```typescript
 @logClass
 class Person {
     @logProperty("Person married? %b") married: boolean = false;

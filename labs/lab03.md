@@ -1,44 +1,25 @@
-# Lab 3 - Create banking customers
+# Lab 3 - Playing with types
 
-## Exercise 1 - Create account numbers.
+## Preparations
 
-1. Create/empty the file `main.ts`.
-1. Define a function that creates a bank account number.
-    * Declare a constant variable called `bic` with value `'TYPEDBANK'`.
-    * Declare a constant variable called `upperBound` with value 999999999;
-    * Declare the function `createAccountNumber`. It should return a new accountNumber as a string. Implement it using `Math.floor(Math.random() * upperBound) + 1` to determine the number.
-    * Return the bank account number (bic and accountNumber) with a a new object with the 2 properties. It should look like: `{ bic: 'TYPEDBANK', number: 523432512 }`.
-1. Add a `toString` method to the account number object. Return the string representation of the account number like `'TYPEDBANK 523432512'`. Try to use a *templated string*.
+Use the setup you made last lab.
 
-## Exercise 2 - Create customers
+## `Type`quiz
 
-1. Create a function `createCustomer` that creates a new customer.
-    * A customer object should have a
-        * `firstName` (type `string`),
-        * `lastName` (type `string`),
-        * optional `preposition` (type `string`)
-    * Try to write it in the fat arrow notation.
+For each of these expressions: try to guess what the outcome will be: `true`, `false`, compile error or something else.
+Next, write the expression in `main.ts` using a `console.log`. Run the file to see if you were correct.
+Keep your score so we can compare later :).
 
-## Exercise 3 - Create bank accounts
+1. `null === null;`
+1. `true || false;`
+1. `2 === "2";`
+1. `false === true;`
+1. `null === undefined;`
+1. `2 + "2";`
+1. `2 * "2";`
+1. `var a: string; console.log(typeof a);`
+1. `var b: never; console.log(typeof b);`
+1. `var c: any = 'test'; console.log(typeof c);`
+1. `var d = true; console.log(d.charAt(1));`
+1. `var e: any = true; console.log(e.charAt(1));`
 
-1. Create a function `createBankAccount` that creates a new bank account for a customer.
-    * The customer object should be provided (type `any`)
-    * It should call `createAccountNumber` to create the account number.
-1. Declare a `bankAccounts` variable without type annotation and initialize it with an array of bank accounts.
-Use the `createCustomer` and `createBankAccount` functions you wrote earlier to populate it with some accounts.
-1. Can you figure out what the type of `bankAccounts` is here?
-
-## Exercise 4
-
-1. Add a `toString()` method to the bank account object. It should return a string representation of the customer like this:
-    * `'[TYPEDBANK 564456] Alfred Jodocus Kwak'`
-    * `'[TYPEDBANK 848164] Jack Sparrow'`
-1. Call `toString` on each customer in the `bankAccounts` array and print it to the console.
-1. Run your application, make sure it prints the bank accounts to the screen.
-
-## Exercise 4 - if time permits
-
-1. Can you make sure that the `toString` for account number will always return the number in 9 digits (pre-fixed with `'0'`'s if needed)
-
-Play around with the setup. See change the compile option `target` to `'es5'`, see what changes in main.js.
-We defined the accountNumber as `any` type in our `customer` object. What are the downsides? We'll improve on this in the next lab.

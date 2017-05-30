@@ -1,41 +1,30 @@
-# Lab 9 - Await async calls
+# Lab 9 - Advanced types
 
 If you couldn't finish the previous exercise, you can copy and paste the pervious solution from the *labsSolutions* directory.
 
-In this lab, we'll change the client to retrieve information from the server and show it on the screen. You can reuse the classes from the 'src' folder so you don't have to recreate the `BankConfig` or `BankAccount` classes.
+## Exercise 1 - Exhaustive languages
 
-**Note:** Make sure that your server typescript compiler as well as your client typescript compiler are watching your files and that your server is running.
+In BankConfig, the language is declared to be a `string`. Let's use union types and exhaustiveness checking to prevent us from making obvious mistakes.
 
-## Exercise 1 - Show name of the `BankConfig`
+1. Alter the type of `language` in `BankConfig`. Make sure the only correct values are `'nl'`, `'en'` and `'fr'`.
+1. In the `createAccount` method of `Bank`, change the `console.log` statement. Based on the `language` setting, it should either say '*[bank]* verwelkomt *[customer]*' (for `'nl'`), '*[bank]* welcomes *[customer]*' (for `'en'`) or '*[bank]* accueille *[customer]* (for `'fr'`).
+1. Make sure all cases are checked using *exhaustiveness checking*.
+1. Make sure you get a compiler error when we now add a new language, for example `'de'`.
 
-1. In the 'client' directory, create a new file to hold a new `Bankend` class, responsible for http calls to the server.
-1. In this new class, create a method for retrieving a `BankConfig` from the server. You can use the HTML5's `fetch` experimental API. It returns a (native) `Promise` for all calls:
-    ```typescript
-    fetch('/api/bank')
-            .then(response => response.json() as Promise<BankConfig>);
+## Exercise 2 - Optional BankConfig
+
+Right now, we are required to provide all bank config options when we create a new bank, even if we can think of sane defaults for the values. Let's change that using a mapped type.
+
+1. Add an object containing the sane defaults to the `Bank.ts` file. Add these values as defaults:
+    ```ts
+    {
+        port: 25647,
+        bic: 'TYPEDBANK',
+        language: 'en',
+        name: 'unknown bank'
+    }
     ```
-1. In your 'client.ts' file, use the newly created function to retrieve the name of the current bank and to display it on the screen. You can select the title on the screen with: `document.querySelector('h1')`.
-1. Test it out and see that you can actually see the name of the bank.
-1. Now try to replace `promise.then()` calls to `await promise` calls in your 'client.ts' and `Backend` class.
-
-## Exercise 2 - Show `BankAccount`s
-
-1. Also create a method for retrieving `BankAccount`s from the server in your `Backend` class.
-1. To display them in the browser you'll need to stamp out the html5 `template` element in the accounts table. You can use this piece of code to accomplish this:
-    ```typescript
-    const template = document.querySelector('template');
-    const tableBody = document.querySelector('tbody');
-
-    // for each account in bankAccounts:
-    template.content.querySelector('.account').textContent = account.number.toString();
-    template.content.querySelector('.name').textContent = account.customer.toString();
-    tableBody.appendChild(document.importNode(this.template.content, true));
-    ```
-1. Now try it out in the browser. What happens to the account number and customer? Can you explain what is happening here? Try to come up with a solution.
-
-## Exercise 3 - Create `BankAccount`s (if time permits)
-
-1. In your `Backend` class Create a method for posting `BankAccount`'s to the server.
-1. Now make sure that whenever the end user clicks the plus (`+`) button the account gets stored on the server.
-1. If that works, is the `AccountNumber` decided on the client or the server? Make sure it is the server.
-1. Add the new account to the account table when it is stored correctly on the server (in-memory).
+1. Change the constructor of `Bank` so it now excepts a partial implementation of the `BankConfig` interface.
+1. Inside the constructor, copy over the values to use. If you use an es6 construct here it can be a one-liner.
+1. Test your setup by only providing the bank name to the constructor.
+1. Bonus: make sure the default object is entirely read-only. Runtime as well as compile time.

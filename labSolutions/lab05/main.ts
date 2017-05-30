@@ -1,64 +1,63 @@
 
+const bic = 'TYPEDBANK';
 const upperBound = 999999999;
 
-interface BankConfig {
-    bic: string;
-    language: string;
-    name: string;
-}
-
-class AccountNumber {
+interface AccountNumber {
     value: number;
+    bic: string;
+}
 
-    constructor(public bic: string) {
-        this.value = Math.floor(Math.random() * upperBound) + 1;
-    }
+interface Customer {
+    firstName: string;
+    lastName: string;
+    preposition?: string;
+}
 
-    toString() {
-        let value = this.value.toString();
-        while (value.length < 9) {
-            value = `0${value}`;
+interface BankAccount {
+    customer: Customer;
+    number: AccountNumber;
+}
+
+const createAccountNumber = (): AccountNumber => {
+    const num = Math.floor(Math.random() * upperBound) + 1;
+    return {
+        value: num,
+        bic: bic,
+        toString() {
+            let value = this.value.toString();
+            while (value.length < 9) {
+                value = `0${value}`;
+            }
+            return `${this.bic} ${value}`
         }
-        return `${this.bic} ${value}`
-    }
-}
+    };
+};
 
-class Customer {
+const createCustomer = (firstName: string, lastName: string, preposition?: string): Customer => {
+    return {
+        firstName,
+        lastName,
+        preposition,
+        toString() {
+            return `${this.firstName}${this.preposition ? ` ${this.preposition}` : ''} ${this.lastName}`;
+        }
+    };
+};
 
-    constructor(public firstName: string, public lastName: string, public preposition?: string) { }
+const createBankAccount = (customer: Customer): BankAccount => {
+    return {
+        customer,
+        number: createAccountNumber(),
+        toString(){
+            return `[${this.number.toString()}] ${this.customer.toString()}`
+        }
+    };
+};
 
-    toString() {
-        return `${this.firstName}${this.preposition ? ` ${this.preposition}` : ''} ${this.lastName}`;
-    }
-}
+const bankAccounts: BankAccount[] = [
+    createBankAccount(createCustomer('Alfred', 'Kwak', 'Jodocus')),
+    createBankAccount(createCustomer('Brad', 'Pit')),
+    createBankAccount(createCustomer('Jack', 'Sparrow'))
+];
 
-class BankAccount {
-
-    readonly number: AccountNumber;
-
-    constructor(public customer: Customer, bic: string) {
-        this.number = new AccountNumber(bic);
-     }
-
-    toString() {
-        return `[${this.number.toString()}] ${this.customer.toString()}`
-    }
-}
-
-class Bank {
-
-    private readonly accounts: BankAccount[] = [];
-
-    constructor(private readonly config: BankConfig) { }
-
-    public createAccount(customer: Customer){
-        const account = new BankAccount(customer, this.config.bic);
-        this.accounts.push(account);
-        console.log(`[${this.config.name}] welcomes ${account.toString()}`);
-    }
-}
-
-const bank = new Bank({ bic: 'TYPEDBANK', language: 'nl', name: 'TypeBank' });
-bank.createAccount(new Customer('Alfred', 'Kwak', 'Jodocus'));
-bank.createAccount(new Customer('Brad', 'Pit'));
-bank.createAccount(new Customer('Jack', 'Sparrow'));
+bankAccounts.forEach(bankAccount => console.log(bankAccount.toString()));

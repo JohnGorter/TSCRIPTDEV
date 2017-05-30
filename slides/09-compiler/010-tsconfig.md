@@ -12,14 +12,17 @@ output in `tsconfig.json`:
 
 ```json
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "target": "es5",
-        "noImplicitAny": false,
-        "sourceMap": false
-    }
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "strict": true
+  }
 }
 ```
+
+<!-- .element class="fragment" data-fragment-index="0" -->
+
+With a bunch of comments
 
 <!-- .element class="fragment" data-fragment-index="0" -->
 

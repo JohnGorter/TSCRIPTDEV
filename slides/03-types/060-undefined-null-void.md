@@ -1,4 +1,4 @@
-### Type: `undefined` and `null`
+## Type: `undefined` and `null`
 
 * The `undefined` type only has a singleton value: `undefined`.
 * The `null` type only has a singleton value: `null`.
@@ -10,7 +10,7 @@ a = null;      // => OK
 a = undefined; // => OK
 ```
 
-* Disable the subtyping using `--strictNullChecks` compiler option
+* Disable the sub-typing using `--strictNullChecks` compiler option
 
 <!-- .element class="fragment" data-fragment-index="0" -->
 

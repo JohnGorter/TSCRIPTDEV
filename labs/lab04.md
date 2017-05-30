@@ -1,19 +1,48 @@
-# Lab 4 - Interfaces
+# Lab 4 - Create banking customers
 
-If you couldn't finish the previous exercise, you can copy and paste the pervious solution from the *labsSolutions* folder.
+## Preparations
 
-In this Lab you are going to refactor and improve the code base to make it more type safe.
+Create the setup you made last lab.
 
-## Exercise 1: Create an `AccountNumber` interface
+## Exercise 1 - Create account numbers.
 
-1. Create an `AccountNumber` interface. The interface should describe the shape returned by the `createAccountNumber` function.
-1. Alter the type of the `accountNumber` parameter in the `createCustomer` function. It should now be of type `AccountNumber` (instead of `any`)
-1. Make the return type of `createAccountNumber` function explicitly `AccountNumber`.
-1. Make sure that there are no compile errors.
+1. Create/empty the file `main.ts`.
+1. Define a function that creates a bank account number.
+    * Declare a constant variable called `bic` with value `'TYPEDBANK'`.
+    * Declare a constant variable called `upperBound` with value 999999999;
+    * Declare the function `createAccountNumber`. It should return a new accountNumber as a string. Implement it using `Math.floor(Math.random() * upperBound) + 1` to determine the number.
+    * Return the bank account number (bic and accountNumber) with a a new object with the 2 properties. It should look like: `{ bic: 'TYPEDBANK', number: 523432512 }`.
+1. Add a `toString` method to the account number object. Return the string representation of the account number like `'TYPEDBANK 523432512'`. Try to use a *templated string*.
 
-Play around with the `AccountNumber` interface. What happens if you add a property to it? What happens when you remove the explicit return type from the `createAccountNumber` function? Can you explain what's happening here?
+## Exercise 2 - Create customers
 
-## Exercise 2: Create a `Customer` and `BankAccount` interface
+1. Create a function `createCustomer` that creates a new customer.
+    * A customer object should have a
+        * `firstName` (type `string`),
+        * `lastName` (type `string`),
+        * optional `preposition` (type `string`)
+    * Try to write it in the fat arrow notation.
 
-1. Do the same for the `createCustomer` function and a new `Customer` interface.
-1. Do the same for the `createBankAccount` function and a new `BankAccount` interface. This time, also explicitly type the make the `bankAccounts` array.
+## Exercise 3 - Create bank accounts
+
+1. Create a function `createBankAccount` that creates a new bank account for a customer.
+    * The customer object should be provided (type `any`)
+    * It should call `createAccountNumber` to create the account number.
+1. Declare a `bankAccounts` variable without type annotation and initialize it with an array of bank accounts.
+Use the `createCustomer` and `createBankAccount` functions you wrote earlier to populate it with some accounts.
+1. Can you figure out what the type of `bankAccounts` is here?
+
+## Exercise 4
+
+1. Add a `toString()` method to the bank account object. It should return a string representation of the customer like this:
+    * `'[TYPEDBANK 564456] Alfred Jodocus Kwak'`
+    * `'[TYPEDBANK 848164] Jack Sparrow'`
+1. Call `toString` on each customer in the `bankAccounts` array and print it to the console.
+1. Run your application, make sure it prints the bank accounts to the screen.
+
+## Exercise 4 - if time permits
+
+1. Can you make sure that the `toString` for account number will always return the number in 9 digits (pre-fixed with `'0'`'s if needed)
+
+Play around with the setup. See change the compile option `target` to `'es5'`, see what changes in main.js.
+We defined the accountNumber as `any` type in our `customer` object. What are the downsides? We'll improve on this in the next lab.

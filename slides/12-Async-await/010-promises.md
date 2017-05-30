@@ -125,27 +125,3 @@ const numPromise: Promise<number>  = Promise.resolve(42);
 **Important:** promise types resides  `'es2015.promise'`
 
 
-
----
-
-### Async & Await
-
-Typescript introduces the `async` and `await` keywords.
-This allows you to write fully synchronous code that will run asynchronously.
-
-```typescript
-function callServer() {
-    return new Promise<string>(resolve => {
-        //Call server.
-    });
-}
-
-async function getDataFromServerAndPrint() {
-    let res = await callServer();
-
-    console.log(res.data);
-
-    return res;
-}
-```
-

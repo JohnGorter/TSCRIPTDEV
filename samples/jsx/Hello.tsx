@@ -10,7 +10,7 @@ class Greeting extends React.Component<{ greeting: string }, {}> {
 }
 
 const frank = 'frank';
-const test = <HelloWorldComponent greeting={frank}></HelloWorldComponent>
+const test = <Greeting greeting={frank}></Greeting>
 
 var fooBar = <div>
     {["foo", "bar"].map(i => <span>{i}</span>)}

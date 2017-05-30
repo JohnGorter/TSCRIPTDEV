@@ -1,50 +1,30 @@
-# Lab 6 - Structuring code
+# Lab 6 - Classes
+
+## Preparations
 
 If you couldn't finish the previous exercise, you can copy and paste the pervious solution from the *labsSolutions* folder.
 
-## Exercise 1 - Split the code into Multiple files.
+## Exercise 1 - Converting interfaces to classes
 
-1. Split all classes out into it's own files. Use `modules` to link everything back up together.
-    * Create a folder `src/` to hold all class files
-    * `Customer` class in `src/Customer.ts`
-    * `BankAccount` class in `src/BankAccount.ts`
-    * `AccountNumber` class in `src/AccountNumber.ts`
-    * `BankConfig` interface in `src/BankConfig.ts`.
-    * `Bank` class in `src/Bank.ts`.
-1. Make sure you have no compile errors and everything still works as expected.
+1. Inside the main.ts file, change the `interface` keyword in front of `BankAccount` to `class`.
+    * Can you explain why the code still compiles?
+1. Change the `createBankAccount` function to be the `constructor` of `BankAccount`
+1. Do the same for the `Customer` and `AccountNumber` and their `create...` functions.
 
-## Exercise 2 - Create a bank web server
+## Exercise 2 - Creating a Bank class.
 
-For this exercise we'll use the express web server.
+We want to add a `Bank` class. We expect it to have a lot of configuration, so we decide to capture config
+in a separate interface called `BankConfig`.
 
-1. Install express using `npm i -S express body-parser`
-1. Install the *typings* for express using `npm i -D @types/express @types/body-parser`
-1. Can you explain why we use `-S` and `-D` here?
-1. Add a property `portNumber` to the `BankConfig` interface. Can you spot the compile error? Add a port when creating your Bank.
-1. Create a new class `BankServer`. The constructor should take a `Bank`.
-1. Add a `listen` method to the `BankServer`. It should create a webserver which listens to the port configured in the `config` of that `Bank`. Use the `express` webserver with `import * as express from 'express';`. Log a line to the console in the `listen` method to indicate that you are running the webserver.
-1. Implement the following methods:
-    * HTTP GET on /api/bank should provide the config of the bank as a JSON object
-    * HTTP GET on /api/accounts should provide the bank accounts belonging to the bank as a JSON array.
+1. Inside the `Main.ts` create an `interface` called `BankConfig`.
+1. Add the following fields (type: `string`)
+    * `name`, `language` and `bic`.
+1. Create a class called `Bank`, with:
+    * A `private` field `config` of type `BankConfig`
+    * A `private` field `accounts` of type `BankAccount[]`
+    * A `constructor` which accepts a `BankConfig` and assigns it to its own `config`.
+1. Create a (public) method called `createAccount` which creates a bank account for a given customer and adds it to the private `accounts` array. It should also print `'[${bankName}] welcomes ${account}` to the console.
+1. Make sure the `bic` from the `BankConfig` class is used to instantiate the `AccountNumbers`
+1. Both fields `config` and `accounts` should never be reassigned. Make sure this is the case.
+1. Test it out! Remove the old `bankAccounts` array. Instead, create a new bank and add create some accounts. Make sure everything works and you don't have compile errors.
 
-## Exercise 3 (if time permits)
-
-1. Implement the HTTP POST on /api/accounts. It should add the provided JSON customer to the current bank and return a 204 - No Content. Tip: you might need the `'body-parser'` now.
-1. If the post is implemented. Try it out with a tool like Postman or an HttpRequester browser plugin.
-1. Don't forget to implement some validation. These customers are invalid:
-
-```json
-{
-	"firstName": "only firstname"
-}
-
-{
-	"lastName": "only lastname"
-}
-
-{
-	"firstName": "John",
-	"lastName": "Doe",
-    "preposition": 42
-}
-```

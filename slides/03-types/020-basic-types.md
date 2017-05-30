@@ -1,5 +1,4 @@
 ## Basic types
-### Primitive types
 
 The primitive types match one-to-one to the ES types
 

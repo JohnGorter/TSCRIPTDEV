@@ -93,3 +93,10 @@
 .reveal .pin-height-100 {
     max-height: 100px;
 }
+
+.agenda {
+  column-count: 2;
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  list-style-position: inside;
+}

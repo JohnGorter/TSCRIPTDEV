@@ -1,28 +1,21 @@
-# Lab 5 - Classes
+# Lab 5 - Interfaces
+
+## Preparations
 
 If you couldn't finish the previous exercise, you can copy and paste the pervious solution from the *labsSolutions* folder.
 
-## Exercise 1 - Converting interfaces to classes
+In this Lab you are going to refactor and improve the code base to make it more type safe.
 
-1. Inside the main.ts file, change the `interface` keyword in front of `BankAccount` to `class`.
-    * Can you explain why the code still compiles?
-1. Change the `createBankAccount` function to be the `constructor` of `BankAccount`
-1. To the same for the `Customer` and `AccountNumber` and their `create...` functions.
+## Exercise 1: Create an `AccountNumber` interface
 
-## Exercise 2 - Creating a Bank class.
+1. Create an `AccountNumber` interface. The interface should describe the shape returned by the `createAccountNumber` function.
+1. Add a `accountNumber` parameter of type `AccountNumber` to the `createBankAccount` function. Make sure you provide it at the calling side.
+1. Make the return type of `createAccountNumber` function explicitly `AccountNumber`.
+1. Make sure that there are no compile errors.
 
-We want to add a `Bank` class. We expect it to have a lot of configuration, so we decide to capture config
-in a separate interface called `BankConfig`.
+Play around with the `AccountNumber` interface. What happens if you add a property to it? What happens when you remove the explicit return type from the `createAccountNumber` function? Can you explain what's happening here?
 
-1. Inside the `Main.ts` create an `interface` called `BankConfig`.
-1. Add the following fields (type: `string`)
-    * `name`, `language` and `bic`.
-1. Create a class called `Bank`, with:
-    * A `private` field `config` of type `BankConfig`
-    * A `private` field `accounts` of type `BankAccount[]`
-    * A `constructor` which accepts a `BankConfig` and assigns it to its own `config`.
-1. Create a (public) method called `createAccount` which creates a bank account for a given customer and adds it to the private `accounts` array. It should also print `'[${bankName}] welcomes ${account}` to the console.
-1. Make sure the `bic` from the `BankConfig` class is used to instantiate the `AccountNumbers`
-1. Both fields `config` and `accounts` should never be reassigned. Make sure this is the case.
-1. Test it out! Remove the old `bankAccounts` array. Instead, create a new bank and add create some accounts. Make sure everything works and you don't have compile errors.
+## Exercise 2: Create a `Customer` and `BankAccount` interface
 
+1. Do the same for the `createCustomer` function and a new `Customer` interface.
+1. Do the same for the `createBankAccount` function and a new `BankAccount` interface. This time, also explicitly type the make the `bankAccounts` array.

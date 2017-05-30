@@ -1,7 +1,6 @@
+## Array types
 
-### Array
-
-Arrays work exactly as ES arrays.
+Arrays work like ES arrays.
 
 ```typescript
 const list = [1, 2, 3];
@@ -9,6 +8,10 @@ let numbers: Array<number>;
 let numbers2: number[];
 numbers = numbers2 = list
 ```
+
+... but have a _generic type_. More on generics later.
+
+<!-- .element class="fragment" data-fragment-index="0" -->
 
 ---
 
@@ -23,7 +26,7 @@ person = [10, "Henk"]; // => Syntax error
 // Type `[number, string]` is not assignable to type `[string, number]`.
 ```
 
-Very useful in combination with type inferrence <!-- .element class="fragment" data-fragment-index="1" -->
+Very useful in combination with type inference <!-- .element class="fragment" data-fragment-index="1" -->
 
 ```typescript
 console.log(person[0].substr(1)); // OK

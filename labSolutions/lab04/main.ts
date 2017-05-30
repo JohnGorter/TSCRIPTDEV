@@ -1,39 +1,22 @@
 
 const bic = 'TYPEDBANK';
 const upperBound = 999999999;
-
-interface AccountNumber {
-    value: number;
-    bic: string;
-}
-
-interface Customer {
-    firstName: string;
-    lastName: string;
-    preposition?: string;
-}
-
-interface BankAccount {
-    customer: Customer;
-    number: AccountNumber;
-}
-
-const createAccountNumber = (): AccountNumber => {
+const createAccountNumber = () => {
     const num = Math.floor(Math.random() * upperBound) + 1;
     return {
-        value: num,
+        number: num,
         bic: bic,
         toString() {
-            let value = this.value.toString();
-            while (value.length < 9) {
-                value = `0${value}`;
+            let account = this.number.toString();
+            while (account.length < 9) {
+                account = `0${account}`;
             }
-            return `${this.bic} ${value}`
+            return `${this.bic} ${account}`
         }
     };
 };
 
-const createCustomer = (firstName: string, lastName: string, preposition?: string): Customer => {
+const createCustomer = (firstName: string, lastName: string, preposition?: string) => {
     return {
         firstName,
         lastName,
@@ -44,9 +27,9 @@ const createCustomer = (firstName: string, lastName: string, preposition?: strin
     };
 };
 
-const createBankAccount = (customer: Customer): BankAccount => {
+const createBankAccount = (customer: any) => {
     return {
-        customer,
+        customer: customer,
         number: createAccountNumber(),
         toString(){
             return `[${this.number.toString()}] ${this.customer.toString()}`
@@ -54,10 +37,11 @@ const createBankAccount = (customer: Customer): BankAccount => {
     };
 };
 
-const bankAccounts: BankAccount[] = [
+const bankAccounts = [
     createBankAccount(createCustomer('Alfred', 'Kwak', 'Jodocus')),
     createBankAccount(createCustomer('Brad', 'Pit')),
     createBankAccount(createCustomer('Jack', 'Sparrow'))
 ];
+
 
 bankAccounts.forEach(bankAccount => console.log(bankAccount.toString()));

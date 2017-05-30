@@ -1,106 +1,56 @@
-# Lab 7 - Client side bank
+# Lab 7 - Structuring code
 
 If you couldn't finish the previous exercise, you can copy and paste the pervious solution from the *labsSolutions* directory.
 
-## Exercise 1 - Quality improvements
+## Exercise 1 - Split the code into Multiple files.
 
-1. Enable all quality compiler options as shown in the slides.
-1. Fix any compiler error you might have. Make sure your code still works.
+Split all classes out into it's own files. Use `modules` to link everything back up together
 
-## Exercise 2 - Create and serve an index.html file
+1. Create a directory `src/` to hold all source files
+1. We move code we intent to reuse across the client and server side code in shared folder
+    * Create a directory `src/shared`.
+    * Add `Customer` class to `src/shared/Customer.ts`
+    * Add `BankAccount` class to `src/shared/BankAccount.ts`
+    * Add `AccountNumber` class to `src/shared/AccountNumber.ts`
+    * Add `BankConfig` interface to `src/shared/BankConfig.ts`.
+1. We move server specific code to a src/server directory
+    * Create a directory `src/server`
+    * Add `Bank` class to `src/server/Bank.ts`.
+    * Add the remaining code from the `main.ts` file to `src/server/main.ts`
+1. Make sure you have no compile errors and everything still works as expected.
 
-In this exercise we'll let our webserver also serve static files. We will load an html page in a browser which will function as our banking application.
+## Exercise 2 - Create a bank web server
 
-1. Create a new directory `public` next to the `src` directory
-1. Create an index.html file with the following content:
-```html
-<html>
+For this exercise we'll use the express web server.
 
-<head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
-</head>
+1. Install express using `npm i -S express body-parser`
+1. Install the *typings* for express using `npm i -D @types/express @types/body-parser`
+1. Can you explain why we use `-S` and `-D` here?
+1. Add a property `portNumber` to the `BankConfig` interface. Can you spot the compile error? Add a port when creating your Bank.
+1. Create a new class `BankServer`. The constructor should take a `Bank`.
+1. Add a `listen` method to the `BankServer`. It should create a webserver which listens to the port configured in the `config` of that `Bank`. Use the `express` webserver with `import * as express from 'express';`. Log a line to the console in the `listen` method to indicate that you are running the webserver.
+1. Implement the following methods:
+    * HTTP GET on /api/bank should provide the config of the bank as a JSON object
+    * HTTP GET on /api/accounts should provide the bank accounts belonging to the bank as a JSON array.
 
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1></h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Bank accounts</h2>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Account</th>
-                            <th>Name</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+## Exercise 3 (if time permits)
 
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Add Bank account</h2>
-            </div class="col-md-12">
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <form class="form" name="customer">
-                    <div class="form-group">
-                        <label for="nameInput">First name</label>
-                        <input id="nameInput" name="firstName" type="text" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="nameInput">Last name</label>
-                        <input id="nameInput" name="lastName" type="text" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="nameInput">Preposition</label>
-                        <input id="nameInput" name="preposition" type="text" class="form-control">
-                    </div>
-                    <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i></button>
-                </form>
-            </div>
-        </div>
-    </div>
-    <template>
-        <tr>
-            <td class="account"></td>
-            <td class="name"></td>
-        </tr>
-    </template>
-</body>
-</html>
+1. Implement the HTTP POST on /api/accounts. It should add the provided JSON customer to the current bank and return a 204 - No Content. Tip: you might need the `'body-parser'` now.
+1. If the post is implemented. Try it out with a tool like Postman or an HttpRequester browser plugin.
+1. Don't forget to implement some validation. These customers are invalid:
+
+```json
+{
+	"firstName": "only firstname"
+}
+
+{
+	"lastName": "only lastname"
+}
+
+{
+	"firstName": "John",
+	"lastName": "Doe",
+    "preposition": 42
+}
 ```
-1. Alter your `src/BankServer.ts` file. Make sure it can serve files from your public directory. Tip: it should only take you 1 line of code.
-1. Run your webserver. Open a browser and go to the correct address. For example if your bank serves from 25647, go to http://localhost:25647. The index.html file should be visible in your browser.
-
-## Exercise 3 - Setup client code
-
-In this exercise we'll add a second tsconfig.json file, this is for our client application. We want to use `modules` to structure our code, so we need to choose a *module loader*. We'll choose [SystemJS](https://github.com/systemjs/systemjs) for this exercise. It has the advantages of running entirely client side (no special build step required) and we'll be able able to package all client side code in one output file.
-
-1. Create a directory next to the `src` directory with the name `client`.
-1. Add a file "client.ts". Add a `console.log('hello world')` to test your setup. Also make sure it is treated as a `module`. You can do this by adding an `import` or `export` statement: `import { BankAccount } from './../src/BankAccount';`
-1. Add a tsconfig.json file to the directory. This tsconfig.json is responsible for compiling our client code.
-    * Choose `'system'` as your module syntax.
-    * Choose '../public/client.js' as your single output file.
-    * We want to use the dom inside our client code. Add the lib for `"es5"`, `"dom"` and `"es2015.promise"`.
-1. Open a new command prompt and cd into the root of your project. Run tsc with the new tsconfig json file.
-    * `./node_modules/.bin/tsc -w -p client`
-    * You should now see a "client.js" file in your "public" directory.
-        * It should also contain a call to register the 'client/client' module: `System.register("client/client", ...`.
-1. Now we need to add SystemJS, client.js and glue to our client.js to our index.html file. Open up the file and add these lines of code *just before the `</body>`*:
-    ```html
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.20.9/system.js"></script>
-    <script src="client.js"></script>
-    <script>
-        SystemJS.import('client/client');
-    </script>
-    ```
-1. Test your setup by refreshing the browser. You should see 'hello world' printed to the console.

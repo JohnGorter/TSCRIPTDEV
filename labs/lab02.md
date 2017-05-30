@@ -1,23 +1,22 @@
-# Lab 2 - Playing with types
+# Lab 2 - Getting started
 
-Use the setup you made last lab to get to know types.
+Prerequisites:
+    - NodeJS installed
+    - NPM installed
 
-## `Type`quiz
-
-For each of these expressions: try to guess what the outcome will be: `true`, `false`, compile error or something else.
-Next, write the expression in `main.ts` using a `console.log`. Run the file to see if you were correct.
-Keep your score so we can compare later :).
-
-1. `null === null;`
-1. `true || false;`
-1. `2 === "2";`
-1. `false === true;`
-1. `null === undefined;`
-1. `2 + "2";`
-1. `2 * "2";`
-1. `var a: string; console.log(typeof a);`
-1. `var b: never; console.log(typeof b);`
-1. `var c: any = 'test'; console.log(typeof c);`
-1. `var d = true; console.log(d.charAt(1));`
-1. `var e: any = true; console.log(e.charAt(1));`
-
+1. Create an empty working directory. Open that directory in the command line of your choice.
+1. Initialize a new TypeScript project.
+    - Create a `package.json`.
+        - `npm init --yes`
+    - Install TypeScript as a local dev dependency
+        - `npm install --save-dev typescript`
+    - Create a `tsconfig.json`
+        - `./node_modules/.bin/tsc init`
+        - Compile your code to `ES6`
+        - Set `sourceMap` to `true`
+        - Set `strict` to false.
+1. Setup your favorite IDE.
+    - If using VSCode look in the slides on how to do this.
+1. Create a file `main.ts`. This will be the home of our TypeScript application for now.
+1. Play around with a hello world type application. Make sure errors are displayed in your IDE.
+1. Try out some constructs you know from JavaScript, like `function`s, `if`-`else`, `for`, `while`

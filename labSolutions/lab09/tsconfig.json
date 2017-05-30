@@ -2,21 +2,13 @@
     "compilerOptions": {
         "module": "commonjs",
         "target": "es6",
-        "noImplicitAny": true,
-        "sourceMap": true,
-        "allowUnreachableCode": false,
-        "forceConsistentCasingInFileNames": true,
         "noImplicitReturns": true,
-        "noImplicitThis": true,
-        "noEmitOnError": true,
         "noFallthroughCasesInSwitch": true,
-        "types": [],
-        "lib": [
-            "es2015"
-        ]
-    },
-    "exclude": [
-        "node_modules",
-        "client"
-    ]
+        "strict": true,
+        "noEmitOnError": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "forceConsistentCasingInFileNames": true,
+        "sourceMap": true
+    }
 }
