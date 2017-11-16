@@ -1,6 +1,6 @@
 ## Mapped types
 
-Let's say your building a library
+Let's say you're building a library
 
 ```typescript
 interface Config {

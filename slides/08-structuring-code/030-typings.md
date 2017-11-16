@@ -33,7 +33,7 @@ Useful when you are writing your own library and don't want to provide the TypeS
 
 <!-- .element class="fragment" data-fragment-index="1" -->
 
-Pointing to the your declaration files can be done inside the `package.json`.
+Pointing to the declaration files can be done inside the `package.json`.
 
 <!-- .element class="fragment" data-fragment-index="2" -->
 

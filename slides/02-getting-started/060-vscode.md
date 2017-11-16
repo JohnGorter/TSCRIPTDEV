@@ -14,7 +14,7 @@ Setup
 
 ### Configure TypeScript SDK
 
-If your using a local TypeScript compiler
+If you're using a local TypeScript compiler
 
 1. Open command palette with **Ctrl+Shift+P**
 1. Select: "Preferences: Open Workspace Settings"
