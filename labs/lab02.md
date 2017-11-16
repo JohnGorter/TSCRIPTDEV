@@ -11,7 +11,7 @@ Prerequisites:
     - Install TypeScript as a local dev dependency
         - `npm install --save-dev typescript`
     - Create a `tsconfig.json`
-        - `./node_modules/.bin/tsc init`
+        - `./node_modules/.bin/tsc --init`
         - Compile your code to `ES6`
         - Set `sourceMap` to `true`
         - Set `strict` to false.
