@@ -1,3 +1,7 @@
+Co- contravariance: 
+https://stackoverflow.com/questions/4669858/simple-examples-of-co-and-contravariance
+
+
 # Course structure
 
 1. TypeScript 101
