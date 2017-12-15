@@ -29,7 +29,7 @@ If you're using a local TypeScript compiler
 
 Configure your vscode to compile TypeScript.
 1. Open the command palette with **Ctrl+Shift+P**
-1. Type "Configure Task Runner", press Enter to select it.
+1. Type "Configure Build Task", press Enter to select it.
 1. Select "TypeScript - tsconfig.json", press Enter to select it.
     1. Inspect the generated ".vscode/tasks.json" file.
     1. If you're using local TypeScript, set the `"command"` to <br />`"${workspaceRoot}/node_modules/.bin/tsc"`
