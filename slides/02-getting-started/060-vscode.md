@@ -12,19 +12,6 @@ Setup
 
 ---
 
-### Configure TypeScript SDK
-
-If you're using a local TypeScript compiler
-
-1. Open command palette with **Ctrl+Shift+P**
-1. Select: "Preferences: Open Workspace Settings"
-1. Configure the typescript sdk on the right side
-```json
-"typescript.tsdk": "./node_modules/typescript/lib"
-```
-
----
-
 ### Configure the compile task
 
 Configure your vscode to compile TypeScript.
