@@ -4,11 +4,10 @@
 
 Setup
 
-1. Configure TypeScript SDK
-1. Configure the compile task
-1. Show problems
-1. Run your application
-1. Debug your application
+1. Configure the build/compile task
+2. Show problems
+3. Run your application
+4. Debug your application
 
 ---
 
